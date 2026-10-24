@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="@color/white" android:id="@+id/photoPickerRoot">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+        <TextView android:layout_width="wrap_content" android:layout_height="48dp" android:padding="12dp" android:gravity="center" android:id="@+id/btnCancel" android:clickable="true" android:focusable="true" android:text="@string/kn_s3_067" android:textSize="14sp" android:textColor="@color/text_dark" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="@string/kn_s3_068" android:textSize="17sp" android:textColor="@color/text_dark" android:textStyle="bold" />
+        <TextView android:layout_width="wrap_content" android:layout_height="48dp" android:padding="12dp" android:gravity="center" android:id="@+id/btnNext" android:clickable="true" android:focusable="true" android:text="@string/kn_s3_069" android:textSize="14sp" android:textColor="@color/primary" android:textStyle="bold" />
+    </LinearLayout>
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:fillViewport="true">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <FrameLayout android:layout_width="match_parent" android:layout_height="250dp" android:layout_weight="1">
+                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/ph_beige" android:src="@drawable/kn_photo_preview" android:scaleType="centerCrop" android:contentDescription="@string/kn_s3_064" />
+                <ImageView android:layout_width="36dp" android:layout_height="36dp" android:layout_gravity="bottom|start" android:src="@drawable/ic_kn_photo_expand" android:contentDescription="@string/kn_s3_066" android:padding="9dp" app:tint="@color/white" android:layout_margin="10dp" android:background="@drawable/bg_kn_photo_expand" />
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="36dp" android:layout_gravity="bottom|end" android:layout_margin="10dp" android:orientation="horizontal" android:gravity="center_vertical" android:paddingStart="12dp" android:background="@drawable/bg_button_primary">
+                    <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/ic_kn_photo_multiple" android:contentDescription="@null" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="36dp" android:layout_gravity="center_vertical" android:gravity="center" android:paddingStart="10dp" android:paddingEnd="10dp" android:text="@string/kn_s3_065" android:textSize="10sp" android:textColor="@color/white" android:textStyle="bold" />
+                </LinearLayout>
+            </FrameLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                <FrameLayout android:layout_width="0dp" android:layout_height="88dp" android:layout_weight="1" android:layout_margin="1dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="88dp" android:background="@color/ph_beige" android:src="@drawable/ph_scene" android:scaleType="centerCrop" android:contentDescription="@string/kn_s3_031" />
+                    <TextView android:layout_width="22dp" android:layout_height="22dp" android:layout_gravity="top|end" android:background="@drawable/bg_kn_photo_selected" android:padding="0dp" android:layout_margin="4dp" android:text="@string/kn_s3_032" android:textSize="12sp" android:textColor="@color/white" android:textStyle="bold" android:gravity="center" android:includeFontPadding="false" />
+                    <View android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_kn_photo_border" android:importantForAccessibility="no" />
+                </FrameLayout>
+                <FrameLayout android:layout_width="0dp" android:layout_height="88dp" android:layout_weight="1" android:layout_margin="1dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="88dp" android:background="@color/ph_teal" android:src="@drawable/ph_scene" android:scaleType="centerCrop" android:contentDescription="@string/kn_s3_033" />
+                    <TextView android:layout_width="18dp" android:layout_height="18dp" android:layout_gravity="top|end" android:background="@drawable/bg_kn_photo_unselected" android:padding="0dp" android:layout_margin="4dp" android:textSize="12sp" android:textColor="@color/white" android:textStyle="bold" android:gravity="center" android:includeFontPadding="false" />
+                </FrameLayout>
+                <FrameLayout android:layout_width="0dp" android:layout_height="88dp" android:layout_weight="1" android:layout_margin="1dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="88dp" android:background="@color/ph_purple" android:src="@drawable/ph_scene" android:scaleType="centerCrop" android:contentDescription="@string/kn_s3_035" />
+                    <TextView android:layout_width="18dp" android:layout_height="18dp" android:layout_gravity="top|end" android:background="@drawable/bg_kn_photo_unselected" android:padding="0dp" android:layout_margin="4dp" android:textSize="12sp" android:textColor="@color/white" android:textStyle="bold" android:gravity="center" android:includeFontPadding="false" />
+                </FrameLayout>
+                <FrameLayout android:layout_width="0dp" android:layout_height="88dp" android:layout_weight="1" android:layout_margin="1dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="88dp" android:background="@color/ph_blue" android:src="@drawable/ph_scene" android:scaleType="centerCrop" android:contentDescription="@string/kn_s3_037" />
+                    <TextView android:layout_width="18dp" android:layout_height="18dp" android:layout_gravity="top|end" android:background="@drawable/bg_kn_photo_unselected" android:padding="0dp" android:layout_margin="4dp" android:textSize="12sp" android:textColor="@color/white" android:textStyle="bold" android:gravity="center" android:includeFontPadding="false" />
+                </FrameLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                <FrameLayout android:layout_width="0dp" android:layout_height="88dp" android:layout_weight="1" android:layout_margin="1dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="88dp" android:background="@color/ph_green" android:src="@drawable/ph_scene" android:scaleType="centerCrop" android:contentDescription="@string/kn_s3_039" />
+                    <TextView android:layout_width="18dp" android:layout_height="18dp" android:layout_gravity="top|end" android:background="@drawable/bg_kn_photo_unselected" android:padding="0dp" android:layout_margin="4dp" android:textSize="12sp" android:textColor="@color/white" android:textStyle="bold" android:gravity="center" android:includeFontPadding="false" />
+                </FrameLayout>
+                <FrameLayout android:layout_width="0dp" android:layout_height="88dp" android:layout_weight="1" android:layout_margin="1dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="88dp" android:background="@color/ph_pink" android:src="@drawable/ph_scene" android:scaleType="centerCrop" android:contentDescription="@string/kn_s3_041" />
+                    <TextView android:layout_width="22dp" android:layout_height="22dp" android:layout_gravity="top|end" android:background="@drawable/bg_kn_photo_selected" android:padding="0dp" android:layout_margin="4dp" android:text="@string/kn_s3_042" android:textSize="12sp" android:textColor="@color/white" android:textStyle="bold" android:gravity="center" android:includeFontPadding="false" />
+                </FrameLayout>
+                <FrameLayout android:layout_width="0dp" android:layout_height="88dp" android:layout_weight="1" android:layout_margin="1dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="88dp" android:background="@color/ph_navy" android:src="@drawable/ph_scene" android:scaleType="centerCrop" android:contentDescription="@string/kn_s3_043" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="bottom|end" android:padding="4dp" android:text="@string/kn_s3_045" android:textSize="10sp" android:textColor="@color/white" android:textStyle="bold" android:includeFontPadding="false" />
+                </FrameLayout>
+                <FrameLayout android:layout_width="0dp" android:layout_height="88dp" android:layout_weight="1" android:layout_margin="1dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="88dp" android:background="@color/ph_teal" android:src="@drawable/ph_scene" android:scaleType="centerCrop" android:contentDescription="@string/kn_s3_046" />
+                    <TextView android:layout_width="18dp" android:layout_height="18dp" android:layout_gravity="top|end" android:background="@drawable/bg_kn_photo_unselected" android:padding="0dp" android:layout_margin="4dp" android:textSize="12sp" android:textColor="@color/white" android:textStyle="bold" android:gravity="center" android:includeFontPadding="false" />
+                </FrameLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                <FrameLayout android:layout_width="0dp" android:layout_height="88dp" android:layout_weight="1" android:layout_margin="1dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="88dp" android:background="@color/ph_purple" android:src="@drawable/ph_scene" android:scaleType="centerCrop" android:contentDescription="@string/kn_s3_048" />
+                    <TextView android:layout_width="18dp" android:layout_height="18dp" android:layout_gravity="top|end" android:background="@drawable/bg_kn_photo_unselected" android:padding="0dp" android:layout_margin="4dp" android:textSize="12sp" android:textColor="@color/white" android:textStyle="bold" android:gravity="center" android:includeFontPadding="false" />
+                </FrameLayout>
+                <FrameLayout android:layout_width="0dp" android:layout_height="88dp" android:layout_weight="1" android:layout_margin="1dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="88dp" android:background="@color/ph_beige" android:src="@drawable/ph_scene" android:scaleType="centerCrop" android:contentDescription="@string/kn_s3_050" />
+                    <TextView android:layout_width="18dp" android:layout_height="18dp" android:layout_gravity="top|end" android:background="@drawable/bg_kn_photo_unselected" android:padding="0dp" android:layout_margin="4dp" android:textSize="12sp" android:textColor="@color/white" android:textStyle="bold" android:gravity="center" android:includeFontPadding="false" />
+                </FrameLayout>
+                <FrameLayout android:layout_width="0dp" android:layout_height="88dp" android:layout_weight="1" android:layout_margin="1dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="88dp" android:background="@color/ph_green" android:src="@drawable/ph_scene" android:scaleType="centerCrop" android:contentDescription="@string/kn_s3_052" />
+                    <TextView android:layout_width="18dp" android:layout_height="18dp" android:layout_gravity="top|end" android:background="@drawable/bg_kn_photo_unselected" android:padding="0dp" android:layout_margin="4dp" android:textSize="12sp" android:textColor="@color/white" android:textStyle="bold" android:gravity="center" android:includeFontPadding="false" />
+                </FrameLayout>
+                <FrameLayout android:layout_width="0dp" android:layout_height="88dp" android:layout_weight="1" android:layout_margin="1dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="88dp" android:background="@color/ph_blue" android:src="@drawable/ph_scene" android:scaleType="centerCrop" android:contentDescription="@string/kn_s3_054" />
+                    <TextView android:layout_width="18dp" android:layout_height="18dp" android:layout_gravity="top|end" android:background="@drawable/bg_kn_photo_unselected" android:padding="0dp" android:layout_margin="4dp" android:textSize="12sp" android:textColor="@color/white" android:textStyle="bold" android:gravity="center" android:includeFontPadding="false" />
+                </FrameLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                <FrameLayout android:layout_width="0dp" android:layout_height="88dp" android:layout_weight="1" android:layout_margin="1dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="88dp" android:background="@color/ph_pink" android:src="@drawable/ph_scene" android:scaleType="centerCrop" android:contentDescription="@string/kn_s3_056" />
+                    <TextView android:layout_width="18dp" android:layout_height="18dp" android:layout_gravity="top|end" android:background="@drawable/bg_kn_photo_unselected" android:padding="0dp" android:layout_margin="4dp" android:textSize="12sp" android:textColor="@color/white" android:textStyle="bold" android:gravity="center" android:includeFontPadding="false" />
+                </FrameLayout>
+                <FrameLayout android:layout_width="0dp" android:layout_height="88dp" android:layout_weight="1" android:layout_margin="1dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="88dp" android:background="@color/ph_navy" android:src="@drawable/ph_scene" android:scaleType="centerCrop" android:contentDescription="@string/kn_s3_058" />
+                    <TextView android:layout_width="18dp" android:layout_height="18dp" android:layout_gravity="top|end" android:background="@drawable/bg_kn_photo_unselected" android:padding="0dp" android:layout_margin="4dp" android:textSize="12sp" android:textColor="@color/white" android:textStyle="bold" android:gravity="center" android:includeFontPadding="false" />
+                </FrameLayout>
+                <FrameLayout android:layout_width="0dp" android:layout_height="88dp" android:layout_weight="1" android:layout_margin="1dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="88dp" android:background="@color/ph_blue" android:src="@drawable/ph_scene" android:scaleType="centerCrop" android:contentDescription="@string/kn_s3_060" />
+                    <TextView android:layout_width="18dp" android:layout_height="18dp" android:layout_gravity="top|end" android:background="@drawable/bg_kn_photo_unselected" android:padding="0dp" android:layout_margin="4dp" android:textSize="12sp" android:textColor="@color/white" android:textStyle="bold" android:gravity="center" android:includeFontPadding="false" />
+                </FrameLayout>
+                <FrameLayout android:layout_width="0dp" android:layout_height="88dp" android:layout_weight="1" android:layout_margin="1dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="88dp" android:background="@color/ph_beige" android:src="@drawable/ph_scene" android:scaleType="centerCrop" android:contentDescription="@string/kn_s3_062" />
+                    <TextView android:layout_width="18dp" android:layout_height="18dp" android:layout_gravity="top|end" android:background="@drawable/bg_kn_photo_unselected" android:padding="0dp" android:layout_margin="4dp" android:textSize="12sp" android:textColor="@color/white" android:textStyle="bold" android:gravity="center" android:includeFontPadding="false" />
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="2dp" android:orientation="horizontal">
+            <View android:layout_width="0dp" android:layout_height="2dp" android:layout_weight="1" android:background="@color/primary" />
+            <Space android:layout_width="0dp" android:layout_height="2dp" android:layout_weight="2" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+            <TextView android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:gravity="center" android:text="@string/kn_s3_070" android:textSize="14sp" android:textColor="@color/primary" android:textStyle="bold" />
+            <TextView android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:gravity="center" android:id="@+id/btnPickerCamera" android:clickable="true" android:focusable="true" android:text="@string/kn_s3_071" android:textSize="14sp" android:textColor="@color/text_dark" />
+            <TextView android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:gravity="center" android:text="@string/kn_s3_072" android:textSize="14sp" android:textColor="@color/text_dark" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

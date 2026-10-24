@@ -1,0 +1,14 @@
+.gradle/
+.idea/
+.kotlin/
+**/build/
+local.properties
+**/google-services.json
+**/.env*
+**/.secret*
+**/node_modules/
+**/*adminsdk*.json
+**/*service-account*.json
+**/*debug.log*
+.firebase/
+*.apk

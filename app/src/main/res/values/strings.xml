@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">i221152</string>
+    <string name="post_header"><b>Lina Marsh</b> is at <b>Clifton Beach</b></string>
+    <string name="notif_1"><b>Aisha Khan</b> and <b>32 others</b> reacted to your photo.</string>
+    <string name="notif_2"><b>Sara Iqbal</b> sent you a friend request.</string>
+    <string name="notif_3"><b>Zain Raza</b> replied to your comment: “next time invite the rest of us”</string>
+    <string name="notif_4">New post in <b>SMD Class of 2026</b>: “Assignment 1 is out. Start early.”</string>
+    <string name="notif_5"><b>Hamza Ali</b> tagged you in a post.</string>
+    <string name="notif_6"><b>Lina Marsh</b> liked your story.</string>
+</resources>

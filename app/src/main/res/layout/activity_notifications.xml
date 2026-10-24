@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/white" android:orientation="vertical">
+
+    <include layout="@layout/layout_top_tabs" />
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:padding="16dp" android:text="New" android:textColor="@color/text_dark" android:textSize="20sp" android:textStyle="bold" />
+
+            <!-- "New" block has a light teal background -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:background="@color/story_create_bg" android:orientation="vertical" android:paddingBottom="8dp">
+
+                <!-- Aisha Khan reacted (heart badge) -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"
+                    android:paddingStart="12dp" android:paddingTop="8dp" android:paddingEnd="8dp" android:paddingBottom="8dp">
+                    <FrameLayout android:layout_width="70dp" android:layout_height="70dp">
+                        <TextView android:layout_width="62dp" android:layout_height="62dp" android:layout_gravity="top|start" android:background="@drawable/bg_avatar"
+                            android:backgroundTint="@color/av_crimson" android:gravity="center" android:text="AK" android:textColor="@color/white" android:textSize="22sp" android:textStyle="bold" />
+                        <FrameLayout android:layout_width="26dp" android:layout_height="26dp" android:layout_gravity="bottom|end" android:background="@drawable/bg_circle_white">
+                            <ImageView android:layout_width="22dp" android:layout_height="22dp" android:layout_gravity="center" android:background="@drawable/bg_avatar"
+                                android:backgroundTint="@color/love_red" android:contentDescription="Love" android:padding="5dp" android:src="@drawable/ic_heart" app:tint="@color/white" />
+                        </FrameLayout>
+                    </FrameLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/notif_1" android:textColor="@color/text_dark" android:textSize="16sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="5m" android:textColor="@color/primary" android:textSize="14sp" android:textStyle="bold" />
+                    </LinearLayout>
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:contentDescription="More" android:src="@drawable/ic_more_horiz" app:tint="@color/text_gray" />
+                </LinearLayout>
+
+                <!-- Sara Iqbal friend request (person badge + buttons) -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"
+                    android:paddingStart="12dp" android:paddingTop="8dp" android:paddingEnd="8dp" android:paddingBottom="8dp">
+                    <FrameLayout android:layout_width="70dp" android:layout_height="70dp">
+                        <TextView android:layout_width="62dp" android:layout_height="62dp" android:layout_gravity="top|start" android:background="@drawable/bg_avatar"
+                            android:backgroundTint="@color/av_indigo" android:gravity="center" android:text="SI" android:textColor="@color/white" android:textSize="22sp" android:textStyle="bold" />
+                        <FrameLayout android:layout_width="26dp" android:layout_height="26dp" android:layout_gravity="bottom|end" android:background="@drawable/bg_circle_white">
+                            <ImageView android:layout_width="22dp" android:layout_height="22dp" android:layout_gravity="center" android:background="@drawable/bg_avatar"
+                                android:contentDescription="Friend request" android:padding="5dp" android:src="@drawable/ic_user" app:tint="@color/white" />
+                        </FrameLayout>
+                    </FrameLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/notif_2" android:textColor="@color/text_dark" android:textSize="16sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="20m" android:textColor="@color/primary" android:textSize="14sp" android:textStyle="bold" />
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:background="@drawable/bg_btn_confirm"
+                                android:gravity="center" android:text="Confirm" android:textColor="@color/white" android:textSize="15sp" android:textStyle="bold" />
+                            <TextView android:layout_width="0dp" android:layout_height="44dp" android:layout_marginStart="8dp" android:layout_weight="1" android:background="@drawable/bg_btn_gray"
+                                android:gravity="center" android:text="Delete" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:contentDescription="More" android:src="@drawable/ic_more_horiz" app:tint="@color/text_gray" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:padding="16dp" android:text="Earlier" android:textColor="@color/text_dark" android:textSize="20sp" android:textStyle="bold" />
+
+            <!-- Zain Raza replied (comment badge) -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"
+                android:paddingStart="12dp" android:paddingTop="8dp" android:paddingEnd="8dp" android:paddingBottom="8dp">
+                <FrameLayout android:layout_width="70dp" android:layout_height="70dp">
+                    <TextView android:layout_width="62dp" android:layout_height="62dp" android:layout_gravity="top|start" android:background="@drawable/bg_avatar"
+                        android:backgroundTint="@color/av_steel" android:gravity="center" android:text="ZR" android:textColor="@color/white" android:textSize="22sp" android:textStyle="bold" />
+                    <FrameLayout android:layout_width="26dp" android:layout_height="26dp" android:layout_gravity="bottom|end" android:background="@drawable/bg_circle_white">
+                        <ImageView android:layout_width="22dp" android:layout_height="22dp" android:layout_gravity="center" android:background="@drawable/bg_avatar"
+                            android:backgroundTint="@color/av_green" android:contentDescription="Comment" android:padding="5dp" android:src="@drawable/ic_comment" app:tint="@color/white" />
+                    </FrameLayout>
+                </FrameLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/notif_3" android:textColor="@color/text_dark" android:textSize="16sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2h" android:textColor="@color/text_gray" android:textSize="14sp" />
+                </LinearLayout>
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:contentDescription="More" android:src="@drawable/ic_more_horiz" app:tint="@color/text_gray" />
+            </LinearLayout>
+
+            <!-- New post in SMD Class of 2026 (group badge) -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"
+                android:paddingStart="12dp" android:paddingTop="8dp" android:paddingEnd="8dp" android:paddingBottom="8dp">
+                <FrameLayout android:layout_width="70dp" android:layout_height="70dp">
+                    <TextView android:layout_width="62dp" android:layout_height="62dp" android:layout_gravity="top|start" android:background="@drawable/bg_avatar"
+                        android:backgroundTint="@color/av_olive" android:gravity="center" android:text="DC" android:textColor="@color/white" android:textSize="22sp" android:textStyle="bold" />
+                    <FrameLayout android:layout_width="26dp" android:layout_height="26dp" android:layout_gravity="bottom|end" android:background="@drawable/bg_circle_white">
+                        <ImageView android:layout_width="22dp" android:layout_height="22dp" android:layout_gravity="center" android:background="@drawable/bg_avatar"
+                            android:backgroundTint="@color/av_indigo" android:contentDescription="Group" android:padding="5dp" android:src="@drawable/ic_people" app:tint="@color/white" />
+                    </FrameLayout>
+                </FrameLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/notif_4" android:textColor="@color/text_dark" android:textSize="16sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="5h" android:textColor="@color/text_gray" android:textSize="14sp" />
+                </LinearLayout>
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:contentDescription="More" android:src="@drawable/ic_more_horiz" app:tint="@color/text_gray" />
+            </LinearLayout>
+
+            <!-- Hamza Ali tagged you (tag badge) -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"
+                android:paddingStart="12dp" android:paddingTop="8dp" android:paddingEnd="8dp" android:paddingBottom="8dp">
+                <FrameLayout android:layout_width="70dp" android:layout_height="70dp">
+                    <TextView android:layout_width="62dp" android:layout_height="62dp" android:layout_gravity="top|start" android:background="@drawable/bg_avatar"
+                        android:backgroundTint="@color/av_brown" android:gravity="center" android:text="HA" android:textColor="@color/white" android:textSize="22sp" android:textStyle="bold" />
+                    <FrameLayout android:layout_width="26dp" android:layout_height="26dp" android:layout_gravity="bottom|end" android:background="@drawable/bg_circle_white">
+                        <ImageView android:layout_width="22dp" android:layout_height="22dp" android:layout_gravity="center" android:background="@drawable/bg_avatar"
+                            android:backgroundTint="@color/reaction_gold" android:contentDescription="Tag" android:padding="5dp" android:src="@drawable/ic_tag" app:tint="@color/white" />
+                    </FrameLayout>
+                </FrameLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/notif_5" android:textColor="@color/text_dark" android:textSize="16sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yesterday" android:textColor="@color/text_gray" android:textSize="14sp" />
+                </LinearLayout>
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:contentDescription="More" android:src="@drawable/ic_more_horiz" app:tint="@color/text_gray" />
+            </LinearLayout>
+
+            <!-- Lina Marsh liked your story (thumb badge) -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"
+                android:paddingStart="12dp" android:paddingTop="8dp" android:paddingEnd="8dp" android:paddingBottom="8dp">
+                <FrameLayout android:layout_width="70dp" android:layout_height="70dp">
+                    <TextView android:layout_width="62dp" android:layout_height="62dp" android:layout_gravity="top|start" android:background="@drawable/bg_avatar"
+                        android:backgroundTint="@color/av_purple" android:gravity="center" android:text="LM" android:textColor="@color/white" android:textSize="22sp" android:textStyle="bold" />
+                    <FrameLayout android:layout_width="26dp" android:layout_height="26dp" android:layout_gravity="bottom|end" android:background="@drawable/bg_circle_white">
+                        <ImageView android:layout_width="22dp" android:layout_height="22dp" android:layout_gravity="center" android:background="@drawable/bg_avatar"
+                            android:contentDescription="Like" android:padding="5dp" android:src="@drawable/ic_thumb" app:tint="@color/white" />
+                    </FrameLayout>
+                </FrameLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/notif_6" android:textColor="@color/text_dark" android:textSize="16sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2d" android:textColor="@color/text_gray" android:textSize="14sp" />
+                </LinearLayout>
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:contentDescription="More" android:src="@drawable/ic_more_horiz" app:tint="@color/text_gray" />
+            </LinearLayout>
+
+            <TextView android:layout_width="match_parent" android:layout_height="48dp" android:layout_margin="16dp" android:background="@drawable/bg_btn_gray"
+                android:gravity="center" android:text="See previous notifications" android:textColor="@color/text_dark" android:textSize="16sp" android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

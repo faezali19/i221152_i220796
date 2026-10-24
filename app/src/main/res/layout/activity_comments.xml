@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="@color/white" android:id="@+id/commentsRoot">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="56dp" android:orientation="horizontal" android:paddingEnd="8dp" android:gravity="center_vertical">
+        <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@drawable/ic_arrow_back" android:contentDescription="@string/kn_s2_032" android:padding="12dp" app:tint="@color/text_dark" android:id="@+id/btnBack" android:clickable="true" android:focusable="true" android:background="?attr/selectableItemBackgroundBorderless" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/kn_s2_033" android:textSize="18sp" android:textColor="@color/text_dark" android:textStyle="bold" />
+        <TextView android:layout_width="wrap_content" android:layout_height="48dp" android:gravity="center" android:paddingStart="12dp" android:paddingEnd="12dp" android:background="@drawable/bg_btn_gray" android:text="@string/kn_s2_031" android:textSize="14sp" android:textColor="@color/text_dark" android:textStyle="bold" />
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:orientation="vertical" android:layout_weight="1">
+        <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:fillViewport="true">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="12dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/kn_s2_001" android:textSize="14sp" android:textColor="@color/text_dark" />
+                    <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@drawable/ic_chevron_right" android:contentDescription="@string/kn_s2_002" android:padding="12dp" app:tint="@color/text_dark" />
+                </LinearLayout>
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/stroke_light" android:layout_marginTop="8dp" android:layout_marginBottom="8dp" />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="8dp" android:paddingBottom="6dp" android:layout_marginStart="0dp" android:gravity="top">
+                    <TextView android:layout_width="34dp" android:layout_height="34dp" android:gravity="center" android:background="@drawable/bg_avatar" android:backgroundTint="@color/av_crimson" android:layout_gravity="top" android:text="@string/kn_s2_006" android:textSize="12sp" android:textColor="@color/white" android:textStyle="bold" />
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:orientation="vertical" android:layout_weight="1" android:layout_marginStart="8dp">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bg_chip" android:padding="10dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/kn_s2_003" android:textSize="14sp" android:textColor="@color/text_dark" android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/kn_s2_004" android:textSize="14sp" android:textColor="@color/text_dark" />
+                        </LinearLayout>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:text="@string/kn_s2_005" android:textSize="12sp" android:textColor="@color/text_gray" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="8dp" android:paddingBottom="6dp" android:layout_marginStart="32dp" android:gravity="top">
+                    <TextView android:layout_width="34dp" android:layout_height="34dp" android:gravity="center" android:background="@drawable/bg_avatar" android:backgroundTint="@color/av_purple" android:layout_gravity="top" android:text="@string/kn_s2_010" android:textSize="12sp" android:textColor="@color/white" android:textStyle="bold" />
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:orientation="vertical" android:layout_weight="1" android:layout_marginStart="8dp">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bg_chip" android:padding="10dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/kn_s2_007" android:textSize="14sp" android:textColor="@color/text_dark" android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/kn_s2_008" android:textSize="14sp" android:textColor="@color/text_dark" />
+                        </LinearLayout>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:text="@string/kn_s2_009" android:textSize="12sp" android:textColor="@color/text_gray" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="8dp" android:paddingBottom="6dp" android:layout_marginStart="32dp" android:gravity="top">
+                    <TextView android:layout_width="34dp" android:layout_height="34dp" android:gravity="center" android:background="@drawable/bg_avatar" android:backgroundTint="@color/av_steel" android:layout_gravity="top" android:text="@string/kn_s2_014" android:textSize="12sp" android:textColor="@color/white" android:textStyle="bold" />
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:orientation="vertical" android:layout_weight="1" android:layout_marginStart="8dp">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bg_chip" android:padding="10dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/kn_s2_011" android:textSize="14sp" android:textColor="@color/text_dark" android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/kn_s2_012" android:textSize="14sp" android:textColor="@color/text_dark" />
+                        </LinearLayout>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:text="@string/kn_s2_013" android:textSize="12sp" android:textColor="@color/text_gray" />
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="48dp" android:text="@string/kn_s2_015" android:textSize="13sp" android:textColor="@color/text_gray" />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="8dp" android:paddingBottom="6dp" android:layout_marginStart="0dp" android:gravity="top">
+                    <TextView android:layout_width="34dp" android:layout_height="34dp" android:gravity="center" android:background="@drawable/bg_avatar" android:backgroundTint="@color/av_brown" android:layout_gravity="top" android:text="@string/kn_s2_020" android:textSize="12sp" android:textColor="@color/white" android:textStyle="bold" />
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:orientation="vertical" android:layout_weight="1" android:layout_marginStart="8dp">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bg_chip" android:padding="10dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/kn_s2_016" android:textSize="14sp" android:textColor="@color/text_dark" android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/kn_s2_017" android:textSize="14sp" android:textColor="@color/text_dark" />
+                        </LinearLayout>
+                        <ImageView android:layout_width="180dp" android:layout_height="140dp" android:background="@color/ph_blue" android:src="@drawable/ph_scene" android:scaleType="centerCrop" android:contentDescription="@string/kn_s2_018" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:text="@string/kn_s2_019" android:textSize="12sp" android:textColor="@color/text_gray" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="8dp" android:paddingBottom="6dp" android:layout_marginStart="0dp" android:gravity="top">
+                    <TextView android:layout_width="34dp" android:layout_height="34dp" android:gravity="center" android:background="@drawable/bg_avatar" android:backgroundTint="@color/av_olive" android:layout_gravity="top" android:text="@string/kn_s2_024" android:textSize="12sp" android:textColor="@color/white" android:textStyle="bold" />
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:orientation="vertical" android:layout_weight="1" android:layout_marginStart="8dp">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bg_chip" android:padding="10dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/kn_s2_021" android:textSize="14sp" android:textColor="@color/text_dark" android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/kn_s2_022" android:textSize="14sp" android:textColor="@color/text_dark" />
+                        </LinearLayout>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:text="@string/kn_s2_023" android:textSize="12sp" android:textColor="@color/text_gray" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="8dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/kn_s2_025" android:textSize="12sp" android:textColor="@color/text_dark" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/kn_s2_026" android:textSize="12sp" android:textColor="@color/text_gray" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@drawable/ic_camera" android:contentDescription="@string/kn_s2_027" android:padding="12dp" app:tint="@color/text_dark" />
+                <EditText android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:id="@+id/commentInput" android:hint="@string/kn_s2_028" android:textSize="14sp" android:background="@drawable/bg_input" android:paddingStart="12dp" android:paddingEnd="12dp" android:inputType="textCapSentences" android:maxLines="2" />
+                <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@drawable/ic_emoji" android:contentDescription="@string/kn_s2_029" android:padding="12dp" app:tint="@color/text_dark" />
+                <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@drawable/ic_share" android:contentDescription="@string/kn_s2_030" android:padding="12dp" app:tint="@color/primary" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

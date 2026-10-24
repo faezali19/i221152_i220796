@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="@color/white" android:id="@+id/editProfileRoot">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+        <TextView android:layout_width="wrap_content" android:layout_height="48dp" android:gravity="center" android:padding="12dp" android:id="@+id/btnCancel" android:clickable="true" android:focusable="true" android:text="@string/kn_s1_059" android:textSize="14sp" android:textColor="@color/text_dark" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="@string/kn_s1_060" android:textSize="18sp" android:textColor="@color/text_dark" android:textStyle="bold" />
+        <TextView android:layout_width="wrap_content" android:layout_height="48dp" android:gravity="center" android:padding="12dp" android:id="@+id/btnSave" android:clickable="true" android:focusable="true" android:text="@string/kn_s1_061" android:textSize="14sp" android:textColor="@color/primary" android:textStyle="bold" />
+    </LinearLayout>
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:fillViewport="true">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/kn_s1_052" android:textSize="17sp" android:textColor="@color/text_dark" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/kn_s1_053" android:textSize="14sp" android:textColor="@color/primary" android:textStyle="bold" />
+            </LinearLayout>
+            <TextView android:layout_width="104dp" android:layout_height="104dp" android:gravity="center" android:background="@drawable/bg_avatar" android:backgroundTint="@color/primary" android:layout_gravity="center" android:layout_marginTop="12dp" android:text="@string/kn_s1_054" android:textSize="34sp" android:textColor="@color/white" android:textStyle="bold" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="16dp" android:gravity="center_vertical">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/kn_s1_055" android:textSize="17sp" android:textColor="@color/text_dark" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/kn_s1_056" android:textSize="14sp" android:textColor="@color/primary" android:textStyle="bold" />
+            </LinearLayout>
+            <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp">
+                <ImageView android:layout_width="match_parent" android:layout_height="140dp" android:background="@color/ph_teal" android:src="@drawable/ph_scene" android:scaleType="centerCrop" android:contentDescription="@string/kn_s1_057" />
+                <ImageView android:layout_width="48dp" android:layout_height="48dp" android:layout_gravity="bottom|end" android:src="@drawable/ic_camera" android:contentDescription="@string/kn_s1_058" android:padding="12dp" app:tint="@color/text_dark" />
+            </FrameLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                <TextView android:layout_width="92dp" android:layout_height="wrap_content" android:text="@string/kn_s1_036" android:textSize="14sp" android:textColor="@color/text_dark" />
+                <EditText android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1" android:id="@+id/editProfileField0" android:text="@string/kn_s1_037" android:textSize="14sp" android:textColor="@color/text_dark" android:backgroundTint="@color/stroke_light" android:inputType="text" android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                <TextView android:layout_width="92dp" android:layout_height="wrap_content" android:text="@string/kn_s1_038" android:textSize="14sp" android:textColor="@color/text_dark" />
+                <EditText android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1" android:id="@+id/editProfileField1" android:text="@string/kn_s1_039" android:textSize="14sp" android:textColor="@color/text_dark" android:backgroundTint="@color/stroke_light" android:inputType="text" android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                <TextView android:layout_width="92dp" android:layout_height="wrap_content" android:text="@string/kn_s1_040" android:textSize="14sp" android:textColor="@color/text_dark" />
+                <EditText android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1" android:id="@+id/editProfileField2" android:text="@string/kn_s1_041" android:textSize="14sp" android:textColor="@color/text_dark" android:backgroundTint="@color/stroke_light" android:inputType="text" android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                <TextView android:layout_width="92dp" android:layout_height="wrap_content" android:text="@string/kn_s1_042" android:textSize="14sp" android:textColor="@color/text_dark" />
+                <EditText android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1" android:id="@+id/editProfileField3" android:text="@string/kn_s1_043" android:textSize="14sp" android:textColor="@color/text_dark" android:backgroundTint="@color/stroke_light" android:inputType="text" android:singleLine="true" />
+            </LinearLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="@string/kn_s1_044" android:textSize="14sp" android:textColor="@color/primary" android:textStyle="bold" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="@string/kn_s1_045" android:textSize="18sp" android:textColor="@color/text_dark" android:textStyle="bold" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                <TextView android:layout_width="92dp" android:layout_height="wrap_content" android:text="@string/kn_s1_046" android:textSize="14sp" android:textColor="@color/text_dark" />
+                <EditText android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1" android:id="@+id/editProfileField5" android:text="@string/kn_s1_047" android:textSize="14sp" android:textColor="@color/text_dark" android:backgroundTint="@color/stroke_light" android:inputType="text" android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                <TextView android:layout_width="92dp" android:layout_height="wrap_content" android:text="@string/kn_s1_048" android:textSize="14sp" android:textColor="@color/text_dark" />
+                <EditText android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1" android:id="@+id/editProfileField6" android:text="@string/kn_s1_049" android:textSize="14sp" android:textColor="@color/text_dark" android:backgroundTint="@color/stroke_light" android:inputType="text" android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                <TextView android:layout_width="92dp" android:layout_height="wrap_content" android:text="@string/kn_s1_050" android:textSize="14sp" android:textColor="@color/text_dark" />
+                <EditText android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1" android:id="@+id/editProfileField7" android:text="@string/kn_s1_051" android:textSize="14sp" android:textColor="@color/text_dark" android:backgroundTint="@color/stroke_light" android:inputType="text" android:singleLine="true" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

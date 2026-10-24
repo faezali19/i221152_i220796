@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/white" android:orientation="vertical">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal" android:padding="12dp">
+        <ImageView android:id="@+id/btnBack" android:layout_width="28dp" android:layout_height="28dp" android:contentDescription="Back" android:src="@drawable/ic_arrow_back" app:tint="@color/text_dark" />
+        <FrameLayout android:layout_width="46dp" android:layout_height="46dp" android:layout_marginStart="8dp">
+            <TextView android:layout_width="46dp" android:layout_height="46dp" android:background="@drawable/bg_avatar" android:backgroundTint="@color/av_crimson" android:gravity="center" android:text="AK" android:textColor="@color/white" android:textSize="16sp" android:textStyle="bold" android:id="@+id/chatPersonInitials1" />
+            <View android:layout_width="14dp" android:layout_height="14dp" android:layout_gravity="bottom|end" android:background="@drawable/bg_online_dot" />
+        </FrameLayout>
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:layout_weight="1" android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Aisha Khan" android:textColor="@color/text_dark" android:textSize="17sp" android:textStyle="bold" android:id="@+id/chatPersonName1" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Active now" android:textColor="@color/text_gray" android:textSize="13sp" />
+        </LinearLayout>
+        <ImageView android:id="@+id/btnCall" android:layout_width="26dp" android:layout_height="26dp" android:layout_marginEnd="16dp" android:contentDescription="Voice call" android:src="@drawable/ic_phone" app:tint="@color/primary" />
+        <ImageView android:layout_width="26dp" android:layout_height="26dp" android:layout_marginEnd="16dp" android:contentDescription="Video call" android:src="@drawable/ic_video" app:tint="@color/primary" />
+        <ImageView android:layout_width="26dp" android:layout_height="26dp" android:contentDescription="Info" android:src="@drawable/ic_info" app:tint="@color/primary" />
+    </LinearLayout>
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/stroke_light" />
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="12dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_horizontal" android:orientation="vertical">
+                <TextView android:layout_width="72dp" android:layout_height="72dp" android:background="@drawable/bg_avatar" android:backgroundTint="@color/av_crimson" android:gravity="center" android:text="AK" android:textColor="@color/white" android:textSize="26sp" android:textStyle="bold" android:id="@+id/chatPersonInitials2" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Aisha Khan" android:textColor="@color/text_dark" android:textSize="22sp" android:textStyle="bold" android:id="@+id/chatPersonName2" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="You're friends on Kinnect · Lives in Karachi" android:textColor="@color/text_gray" android:textSize="14sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:letterSpacing="0.05" android:text="TODAY 4:49 PM" android:textColor="@color/text_gray" android:textSize="13sp" android:textStyle="bold" />
+            </LinearLayout>
+            <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp">
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="40dp" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/bg_bubble_in" android:paddingStart="16dp" android:paddingTop="10dp" android:paddingEnd="16dp" android:paddingBottom="10dp" android:text="Hey! Are you still coming Saturday?" android:textColor="@color/text_dark" android:textSize="16sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:background="@drawable/bg_bubble_in" android:paddingStart="16dp" android:paddingTop="10dp" android:paddingEnd="16dp" android:paddingBottom="10dp" android:text="Lina booked the table for 8" android:textColor="@color/text_dark" android:textSize="16sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:background="@drawable/bg_bubble_in" android:paddingStart="16dp" android:paddingTop="10dp" android:paddingEnd="16dp" android:paddingBottom="10dp" android:text="Bring the camera" android:textColor="@color/text_dark" android:textSize="16sp" />
+                </LinearLayout>
+                <TextView android:layout_width="30dp" android:layout_height="30dp" android:layout_gravity="bottom|start" android:background="@drawable/bg_avatar" android:backgroundTint="@color/av_crimson" android:gravity="center" android:text="AK" android:textColor="@color/white" android:textSize="10sp" android:textStyle="bold" android:id="@+id/chatPersonInitials3" />
+            </FrameLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:gravity="end" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/bg_bubble_out" android:paddingStart="16dp" android:paddingTop="10dp" android:paddingEnd="16dp" android:paddingBottom="10dp" android:text="Yes, obviously" android:textColor="@color/white" android:textSize="16sp" />
+                <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:background="@drawable/bg_bubble_out" android:paddingStart="16dp" android:paddingTop="10dp" android:paddingEnd="16dp" android:paddingBottom="10dp" android:text="Already charged both batteries" android:textColor="@color/white" android:textSize="16sp" />
+                    <FrameLayout android:layout_width="24dp" android:layout_height="24dp" android:layout_gravity="bottom|start" android:layout_marginStart="6dp" android:background="@drawable/bg_circle_white">
+                        <ImageView android:layout_width="18dp" android:layout_height="18dp" android:layout_gravity="center" android:background="@drawable/bg_avatar" android:backgroundTint="@color/love_red" android:contentDescription="Love" android:padding="4dp" android:src="@drawable/ic_heart" app:tint="@color/white" />
+                    </FrameLayout>
+                </FrameLayout>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="You replied to Aisha" android:textColor="@color/text_gray" android:textSize="12sp" android:id="@+id/chatReplyPerson" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:background="@drawable/bg_bubble_in" android:paddingStart="16dp" android:paddingTop="8dp" android:paddingEnd="16dp" android:paddingBottom="8dp" android:text="Lina booked the table for 8" android:textColor="@color/text_gray" android:textSize="14sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:background="@drawable/bg_bubble_out" android:paddingStart="16dp" android:paddingTop="10dp" android:paddingEnd="16dp" android:paddingBottom="10dp" android:text="Perfect, I'll be there by 7:45" android:textColor="@color/white" android:textSize="16sp" />
+                <com.google.android.material.card.MaterialCardView android:layout_width="220dp" android:layout_height="150dp" android:layout_marginTop="3dp" app:cardCornerRadius="18dp" app:cardElevation="0dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/ph_purple" android:contentDescription="Sent photo" android:scaleType="centerCrop" android:src="@drawable/ph_scene" />
+                </com.google.android.material.card.MaterialCardView>
+                <View android:layout_width="14dp" android:layout_height="14dp" android:layout_marginTop="4dp" android:background="@drawable/bg_avatar" android:backgroundTint="@color/av_crimson" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:gravity="center_vertical" android:orientation="horizontal">
+                <TextView android:layout_width="30dp" android:layout_height="30dp" android:background="@drawable/bg_avatar" android:backgroundTint="@color/av_crimson" android:gravity="center" android:text="AK" android:textColor="@color/white" android:textSize="10sp" android:textStyle="bold" android:id="@+id/chatPersonInitials4" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:background="@drawable/bg_bubble_in" android:paddingStart="16dp" android:paddingTop="8dp" android:paddingEnd="16dp" android:paddingBottom="8dp" android:letterSpacing="0.3" android:text="●●●" android:textColor="@color/text_gray" android:textSize="10sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal" android:padding="10dp">
+        <ImageView android:layout_width="28dp" android:layout_height="28dp" android:contentDescription="More" android:src="@drawable/ic_add_circle" app:tint="@color/primary" />
+        <ImageView android:layout_width="26dp" android:layout_height="26dp" android:layout_marginStart="12dp" android:contentDescription="Camera" android:src="@drawable/ic_camera" app:tint="@color/primary" />
+        <ImageView android:layout_width="26dp" android:layout_height="26dp" android:layout_marginStart="12dp" android:contentDescription="Gallery" android:src="@drawable/ic_image" app:tint="@color/primary" />
+        <ImageView android:layout_width="26dp" android:layout_height="26dp" android:layout_marginStart="12dp" android:contentDescription="Voice" android:src="@drawable/ic_mic" app:tint="@color/primary" />
+        <LinearLayout android:layout_width="0dp" android:layout_height="42dp" android:layout_marginStart="12dp" android:layout_weight="1" android:background="@drawable/bg_chip" android:gravity="center_vertical" android:orientation="horizontal" android:paddingStart="16dp" android:paddingEnd="12dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Aa" android:textColor="@color/text_gray" android:textSize="16sp" />
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:contentDescription="Emoji" android:src="@drawable/ic_emoji" app:tint="@color/primary" />
+        </LinearLayout>
+        <ImageView android:layout_width="28dp" android:layout_height="28dp" android:layout_marginStart="12dp" android:contentDescription="Like" android:src="@drawable/ic_thumb" app:tint="@color/primary" />
+    </LinearLayout>
+</LinearLayout>
