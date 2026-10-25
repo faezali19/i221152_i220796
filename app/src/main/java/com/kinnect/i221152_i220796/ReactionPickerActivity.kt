@@ -6,7 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
 /** UI-only screen. Click listeners navigate; no backend or real media operations. */
-class ReactionPickerActivity : AppCompatActivity() {
+class ReactionPickerActivity : LiveActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reaction_picker)

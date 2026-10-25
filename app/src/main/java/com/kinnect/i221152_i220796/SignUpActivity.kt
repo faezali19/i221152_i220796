@@ -5,7 +5,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
 /** Screen 03: Sign up. UI only; buttons just navigate back to Login. */
-class SignUpActivity : AppCompatActivity() {
+class SignUpActivity : LiveActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

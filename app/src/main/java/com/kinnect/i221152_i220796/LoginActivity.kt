@@ -6,7 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
 /** Screen 02: Log in. Buttons only navigate; no real login logic. */
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : LiveActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

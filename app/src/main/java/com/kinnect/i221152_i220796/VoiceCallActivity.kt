@@ -7,7 +7,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
 
 /** Screen 22: Voice call (PDF page 22). End-call button returns to the Chat. */
-class VoiceCallActivity : AppCompatActivity() {
+class VoiceCallActivity : LiveActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_voice_call)

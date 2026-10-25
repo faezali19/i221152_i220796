@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 /** UI-only navigation. Intent extras carry the selected display identity, not account data. */
-class ChatActivity : AppCompatActivity() {
+class ChatActivity : LiveActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)

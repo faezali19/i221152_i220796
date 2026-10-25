@@ -22,8 +22,6 @@ dependencies {
  implementation(platform("com.google.firebase:firebase-bom:34.0.0"))
  implementation("com.google.firebase:firebase-auth")
  implementation("com.google.firebase:firebase-database")
- implementation("com.google.firebase:firebase-storage")
- implementation("com.google.firebase:firebase-functions")
  implementation("com.google.firebase:firebase-messaging")
  implementation("com.github.bumptech.glide:glide:4.16.0")
  implementation("io.agora.rtc:full-sdk:4.5.2")

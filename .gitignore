@@ -12,3 +12,6 @@ local.properties
 **/*debug.log*
 .firebase/
 *.apk
+
+**/local.config.json
+**/local-media/

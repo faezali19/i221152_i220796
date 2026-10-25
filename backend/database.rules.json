@@ -1,0 +1,127 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "users": {
+      ".read": "auth != null",
+      ".indexOn": [
+        "nameLower",
+        "username"
+      ]
+    },
+    "friends": {
+      ".read": "auth != null"
+    },
+    "posts": {
+      ".indexOn": [
+        "ownerId",
+        "createdAt"
+      ],
+      ".read": "auth != null && query.orderByChild == 'ownerId' && (query.equalTo == auth.uid || root.child('friends').child(auth.uid).child(query.equalTo).val() == true)",
+      "$id": {
+        ".read": "auth != null && (data.child('ownerId').val() == auth.uid || root.child('friends').child(auth.uid).child(data.child('ownerId').val()).val() == true)"
+      }
+    },
+    "stories": {
+      ".indexOn": [
+        "ownerId",
+        "expiresAt"
+      ],
+      "$id": {
+        ".read": "auth != null && data.child('ownerId').val() == auth.uid"
+      }
+    },
+    "calls": {
+      ".indexOn": [
+        "status",
+        "createdAt"
+      ],
+      "$id": {
+        ".read": "auth != null && (data.child('caller').val() == auth.uid || data.child('callee').val() == auth.uid)"
+      }
+    },
+    "listings": {
+      ".read": "auth != null"
+    },
+    "chats": {
+      "$id": {
+        ".read": "auth != null && data.child('members').child(auth.uid).val() == true"
+      }
+    },
+    "messages": {
+      "$id": {
+        ".indexOn": [
+          "createdAt"
+        ],
+        ".read": "auth != null && root.child('chats').child($id).child('members').child(auth.uid).val() == true"
+      }
+    },
+    "presence": {
+      ".read": "auth != null",
+      "$uid": {
+        ".write": "auth != null && auth.uid == $uid"
+      }
+    },
+    "privateUsers": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid"
+      }
+    },
+    "requests": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid"
+      }
+    },
+    "sent": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid"
+      }
+    },
+    "closeFriends": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid"
+      }
+    },
+    "userChats": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid"
+      }
+    },
+    "storyFeeds": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid"
+      }
+    },
+    "notifications": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid"
+      }
+    },
+    "incoming": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid"
+      }
+    },
+    "callLogs": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid"
+      }
+    },
+    "storyViews": {
+      "$id": {
+        ".read": "auth != null && root.child('stories').child($id).child('ownerId').val() == auth.uid"
+      }
+    },
+    "storyReactions": {
+      "$id": {
+        ".read": "auth != null && root.child('stories').child($id).child('ownerId').val() == auth.uid"
+      }
+    },
+    "tokens": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid",
+        ".write": "auth != null && auth.uid == $uid"
+      }
+    }
+  }
+}

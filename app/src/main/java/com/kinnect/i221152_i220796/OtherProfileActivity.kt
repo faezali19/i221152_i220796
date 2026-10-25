@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 /** UI-only navigation. Intent extras carry the selected display identity, not account data. */
-class OtherProfileActivity : AppCompatActivity() {
+class OtherProfileActivity : LiveActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_other_profile)

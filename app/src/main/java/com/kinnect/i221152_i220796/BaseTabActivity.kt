@@ -13,7 +13,7 @@ import androidx.core.widget.ImageViewCompat
  * Shared logic for the five main tab screens (Home, Friends, Marketplace,
  * Notifications, Menu). Each of those screens extends this class and calls setupTabs().
  */
-open class BaseTabActivity : AppCompatActivity() {
+open class BaseTabActivity : LiveActivity() {
 
     private val tabIds = intArrayOf(R.id.tabHome, R.id.tabFriends, R.id.tabMarket, R.id.tabNotif, R.id.tabMenu)
     private val iconIds = intArrayOf(R.id.icHome, R.id.icFriends, R.id.icMarket, R.id.icNotif, R.id.icMenu)

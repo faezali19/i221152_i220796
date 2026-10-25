@@ -7,7 +7,7 @@ import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 
 /** Screen 01: shows the logo for 2 seconds, then opens Login. */
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : LiveActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

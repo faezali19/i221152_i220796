@@ -6,7 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
 /** UI-only screen. Click listeners navigate; no backend or real media operations. */
-class StoryEditorActivity : AppCompatActivity() {
+class StoryEditorActivity : LiveActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Draw the full-screen mockup behind the hidden system bars.
