@@ -1,33 +1,8 @@
 package com.kinnect.i221152_i220796
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-
-/** UI-only navigation. Intent extras carry the selected display identity, not account data. */
-class OtherProfileActivity : LiveActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_other_profile)
-        // Default identity preserves the supplied PDF page 17 example.
-        val personName = intent.getStringExtra("person_name") ?: "Omar Farooq"
-        val personInitials = intent.getStringExtra("person_initials") ?: "OF"
-        findViewById<TextView>(R.id.otherProfileTitle).text = personName
-        findViewById<TextView>(R.id.otherProfileName).text = personName
-        findViewById<TextView>(R.id.otherProfileInitials).text = personInitials
-        findViewById<View>(R.id.btnBack).setOnClickListener { finish() }
-        findViewById<View>(R.id.btnOtherSearch).setOnClickListener {
-            startActivity(Intent(this, SearchActivity::class.java))
-        }
-        findViewById<View>(R.id.btnMessage).setOnClickListener {
-            val chatIntent = Intent(this, ChatActivity::class.java)
-            chatIntent.putExtra("person_name", personName)
-            chatIntent.putExtra("person_initials", personInitials)
-            startActivity(chatIntent)
-        }
-        // Photos, details and action controls remain static PDF mock content.
-
-    }
-}
+class OtherProfileActivity:LiveActivity(){override fun onCreate(b:Bundle?){super.onCreate(b);setContentView(R.layout.activity_other_profile);back();val uid=intent.getStringExtra("uid").orEmpty();if(uid.isEmpty()){finish();return};click(R.id.btnOtherSearch){go(SearchActivity::class.java)};click(R.id.btnMessage){openChat(uid)};watch("users/$uid"){u->root.set("Omar Farooq",u.s("name"));root.set("OF",initials(u.s("name")));root.set("Night photographer. Karachi after dark.",u.s("bio"));root.set("Photographer at Studio Nocturne","@${u.s("username")}");root.set("Lives in Karachi, Pakistan",u.s("website"));root.set("Joined June 2017","Joined ${java.text.SimpleDateFormat("MMMM yyyy",java.util.Locale.getDefault()).format(java.util.Date(u.n("createdAt")))}");root.pics("ph_scene").firstOrNull()?.photo(u.obj("cover").s("url"));avatar(root.label("OF"),u.obj("avatar").s("url"))}
+ var mine:Record=emptyMap();var theirs:Record=emptyMap();var sent:Record=emptyMap();var requests:Record=emptyMap()
+ fun update(){val mutual=mine.keys.intersect(theirs.keys);root.set("1,204 friends · 38 mutual","${theirs.size} friends · ${mutual.size} mutual");root.set("Friends with Aisha Khan, Lina Marsh and 36 others","${mutual.size} mutual friends");listOf("AK","LM","ZR").forEachIndexed{i,t->if(i<mutual.size)once("users/${mutual.elementAt(i)}"){root.set(t,initials(it.s("name")))}else root.set(t,"")};root.set("♧ Add friend",if(mine.b(uid))"Friends"else if(sent.b(uid))"Requested"else if(requests.containsKey(uid))"Confirm request"else "♧ Add friend")}
+ watch("friends/${Backend.uid}"){mine=it;update()};watch("friends/$uid"){theirs=it;update()};watch("sent/${Backend.uid}"){sent=it;update()};watch("requests/${Backend.uid}"){requests=it;update()};tap("♧ Add friend"){if(mine.b(uid))toast("You are friends")else api("friend",mapOf("other" to uid,"operation" to if(requests.containsKey(uid))"accept"else if(sent.b(uid))"delete"else "request"))};tap("See all"){ownPhotos(uid)};root.pics("ph_scene").drop(1).forEach{it.setImageDrawable(null);it.setOnClickListener{ownPhotos(uid)}}
+ }}
