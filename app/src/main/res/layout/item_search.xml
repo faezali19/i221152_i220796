@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="wrap_content" android:clickable="true" android:focusable="true" android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="6dp" android:paddingBottom="6dp">
+                <TextView android:layout_width="64dp" android:layout_height="64dp" android:background="@drawable/bg_avatar" android:backgroundTint="@color/av_indigo" android:gravity="center" android:text="OS" android:textColor="@color/white" android:textSize="22sp" android:textStyle="bold" android:tag="t:OS" />
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="14dp" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Omar Siddiqui" android:textColor="@color/text_dark" android:textSize="17sp" android:textStyle="bold" android:tag="t:Omar Siddiqui" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="12 mutual friends · FAST-NUCES" android:textColor="@color/text_gray" android:textSize="14sp" android:tag="t:12 mutual friends · FAST-NUCES" />
+                </LinearLayout>
+                <FrameLayout android:layout_width="48dp" android:layout_height="48dp" android:background="@drawable/bg_circle_teal_light">
+                    <ImageView android:layout_width="22dp" android:layout_height="22dp" android:layout_gravity="center" android:contentDescription="Add friend" android:src="@drawable/ic_person_add" app:tint="@color/primary" android:tag="i:ic_person_add" />
+                </FrameLayout>
+            </LinearLayout>
+
+            
+            
