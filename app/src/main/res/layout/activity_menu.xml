@@ -1,104 +1,96 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@color/bg_cream" android:orientation="vertical">
+<?xml version='1.0' encoding='utf-8'?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/bg_cream" android:orientation="vertical">
 
     <include layout="@layout/layout_top_tabs" />
 
     <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="14dp">
 
-            <!-- Profile card -->
-            <LinearLayout android:id="@+id/btnProfileCard" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:background="@drawable/bg_tile" android:clickable="true" android:focusable="true" android:gravity="center_vertical" android:orientation="horizontal" android:padding="14dp">
-                <TextView android:layout_width="48dp" android:layout_height="48dp" android:background="@drawable/bg_avatar" android:gravity="center"
-                    android:text="JW" android:textColor="@color/white" android:textSize="16sp" android:textStyle="bold" />
+            
+            <LinearLayout android:id="@+id/btnProfileCard" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_tile" android:clickable="true" android:focusable="true" android:gravity="center_vertical" android:orientation="horizontal" android:padding="14dp">
+                <TextView android:layout_width="48dp" android:layout_height="48dp" android:background="@drawable/bg_avatar" android:gravity="center" android:text="JW" android:textColor="@color/white" android:textSize="16sp" android:textStyle="bold" android:tag="t:JW" />
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="12dp" android:layout_weight="1" android:orientation="vertical">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Jacob West" android:textColor="@color/text_dark" android:textSize="17sp" android:textStyle="bold" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="See your profile" android:textColor="@color/text_gray" android:textSize="14sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Jacob West" android:textColor="@color/text_dark" android:textSize="17sp" android:textStyle="bold" android:tag="t:Jacob West" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="See your profile" android:textColor="@color/text_gray" android:textSize="14sp" android:tag="t:See your profile" />
                 </LinearLayout>
-                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="Open" android:src="@drawable/ic_chevron_right" app:tint="@color/text_dark" />
+                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="Open" android:src="@drawable/ic_chevron_right" app:tint="@color/text_dark" android:tag="i:ic_chevron_right" />
             </LinearLayout>
 
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp"
-                android:text="All shortcuts" android:textColor="@color/text_gray" android:textSize="14sp" android:textStyle="bold" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="All shortcuts" android:textColor="@color/text_gray" android:textSize="14sp" android:textStyle="bold" android:tag="t:All shortcuts" />
 
-            <!-- Row 1: Memories / Saved -->
+            
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:orientation="horizontal">
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:background="@drawable/bg_tile" android:orientation="vertical" android:padding="14dp">
-                    <ImageView android:layout_width="26dp" android:layout_height="26dp" android:contentDescription="Memories" android:src="@drawable/ic_clock" app:tint="@color/primary" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="Memories" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" />
+                    <ImageView android:layout_width="26dp" android:layout_height="26dp" android:contentDescription="Memories" android:src="@drawable/ic_clock" app:tint="@color/primary" android:tag="i:ic_clock" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="Memories" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" android:tag="t:Memories" />
                 </LinearLayout>
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:layout_weight="1" android:background="@drawable/bg_tile" android:orientation="vertical" android:padding="14dp">
-                    <ImageView android:layout_width="26dp" android:layout_height="26dp" android:contentDescription="Saved" android:src="@drawable/ic_bookmark" app:tint="@color/av_purple" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="Saved" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" />
+                    <ImageView android:layout_width="26dp" android:layout_height="26dp" android:contentDescription="Saved" android:src="@drawable/ic_bookmark" app:tint="@color/av_purple" android:tag="i:ic_bookmark" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="Saved" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" android:tag="t:Saved" />
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Row 2: Groups / Marketplace -->
+            
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:orientation="horizontal">
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:background="@drawable/bg_tile" android:orientation="vertical" android:padding="14dp">
-                    <ImageView android:layout_width="26dp" android:layout_height="26dp" android:contentDescription="Groups" android:src="@drawable/ic_people" app:tint="@color/av_indigo" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="Groups" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" />
+                    <ImageView android:layout_width="26dp" android:layout_height="26dp" android:contentDescription="Groups" android:src="@drawable/ic_people" app:tint="@color/av_indigo" android:tag="i:ic_people" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="Groups" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" android:tag="t:Groups" />
                 </LinearLayout>
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:layout_weight="1" android:background="@drawable/bg_tile" android:orientation="vertical" android:padding="14dp">
-                    <ImageView android:layout_width="26dp" android:layout_height="26dp" android:contentDescription="Marketplace" android:src="@drawable/ic_store" app:tint="@color/av_green" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="Marketplace" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" />
+                    <ImageView android:layout_width="26dp" android:layout_height="26dp" android:contentDescription="Marketplace" android:src="@drawable/ic_store" app:tint="@color/av_green" android:tag="i:ic_store" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="Marketplace" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" android:tag="t:Marketplace" />
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Row 3: Friends / Events -->
+            
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:orientation="horizontal">
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:background="@drawable/bg_tile" android:orientation="vertical" android:padding="14dp">
-                    <ImageView android:layout_width="26dp" android:layout_height="26dp" android:contentDescription="Friends" android:src="@drawable/ic_user" app:tint="@color/primary" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="Friends" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" />
+                    <ImageView android:layout_width="26dp" android:layout_height="26dp" android:contentDescription="Friends" android:src="@drawable/ic_user" app:tint="@color/primary" android:tag="i:ic_user" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="Friends" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" android:tag="t:Friends" />
                 </LinearLayout>
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:layout_weight="1" android:background="@drawable/bg_tile" android:orientation="vertical" android:padding="14dp">
-                    <ImageView android:layout_width="26dp" android:layout_height="26dp" android:contentDescription="Events" android:src="@drawable/ic_calendar" app:tint="@color/badge_red" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="Events" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" />
+                    <ImageView android:layout_width="26dp" android:layout_height="26dp" android:contentDescription="Events" android:src="@drawable/ic_calendar" app:tint="@color/badge_red" android:tag="i:ic_calendar" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="Events" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" android:tag="t:Events" />
                 </LinearLayout>
             </LinearLayout>
 
-            <TextView android:layout_width="match_parent" android:layout_height="44dp" android:layout_marginTop="12dp" android:background="@drawable/bg_btn_gray"
-                android:gravity="center" android:text="See more" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" />
+            <TextView android:layout_width="match_parent" android:layout_height="44dp" android:layout_marginTop="12dp" android:background="@drawable/bg_btn_gray" android:gravity="center" android:text="See more" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" android:tag="t:See more" />
 
             <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="14dp" android:background="@color/stroke_light" />
 
-            <!-- Help & support -->
+            
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="10dp" android:paddingBottom="10dp">
                 <FrameLayout android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_circle_gray">
-                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:layout_gravity="center" android:contentDescription="Help" android:src="@drawable/ic_help" app:tint="@color/text_dark" />
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:layout_gravity="center" android:contentDescription="Help" android:src="@drawable/ic_help" app:tint="@color/text_dark" android:tag="i:ic_help" />
                 </FrameLayout>
-                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="14dp" android:layout_weight="1" android:text="Help &amp; support" android:textColor="@color/text_dark" android:textSize="16sp" android:textStyle="bold" />
-                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="Expand" android:src="@drawable/ic_chevron_down" app:tint="@color/text_gray" />
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="14dp" android:layout_weight="1" android:text="Help &amp; support" android:textColor="@color/text_dark" android:textSize="16sp" android:textStyle="bold" android:tag="t:Help &amp; support" />
+                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="Expand" android:src="@drawable/ic_chevron_down" app:tint="@color/text_gray" android:tag="i:ic_chevron_down" />
             </LinearLayout>
             <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/stroke_light" />
 
-            <!-- Settings & privacy -->
+            
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="10dp" android:paddingBottom="10dp">
                 <FrameLayout android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_circle_gray">
-                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:layout_gravity="center" android:contentDescription="Settings" android:src="@drawable/ic_sun" app:tint="@color/text_dark" />
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:layout_gravity="center" android:contentDescription="Settings" android:src="@drawable/ic_sun" app:tint="@color/text_dark" android:tag="i:ic_sun" />
                 </FrameLayout>
-                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="14dp" android:layout_weight="1" android:text="Settings &amp; privacy" android:textColor="@color/text_dark" android:textSize="16sp" android:textStyle="bold" />
-                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="Expand" android:src="@drawable/ic_chevron_down" app:tint="@color/text_gray" />
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="14dp" android:layout_weight="1" android:text="Settings &amp; privacy" android:textColor="@color/text_dark" android:textSize="16sp" android:textStyle="bold" android:tag="t:Settings &amp; privacy" />
+                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="Expand" android:src="@drawable/ic_chevron_down" app:tint="@color/text_gray" android:tag="i:ic_chevron_down" />
             </LinearLayout>
             <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/stroke_light" />
 
-            <!-- Also from SMD -->
+            
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="10dp" android:paddingBottom="10dp">
                 <FrameLayout android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_circle_gray">
-                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:layout_gravity="center" android:contentDescription="Apps" android:src="@drawable/ic_grid" app:tint="@color/text_dark" />
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:layout_gravity="center" android:contentDescription="Apps" android:src="@drawable/ic_grid" app:tint="@color/text_dark" android:tag="i:ic_grid" />
                 </FrameLayout>
-                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="14dp" android:layout_weight="1" android:text="Also from SMD" android:textColor="@color/text_dark" android:textSize="16sp" android:textStyle="bold" />
-                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="Expand" android:src="@drawable/ic_chevron_down" app:tint="@color/text_gray" />
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="14dp" android:layout_weight="1" android:text="Also from SMD" android:textColor="@color/text_dark" android:textSize="16sp" android:textStyle="bold" android:tag="t:Also from SMD" />
+                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="Expand" android:src="@drawable/ic_chevron_down" app:tint="@color/text_gray" android:tag="i:ic_chevron_down" />
             </LinearLayout>
 
-            <!-- Log out -->
-            <LinearLayout android:id="@+id/btnLogout" android:layout_width="match_parent" android:layout_height="52dp" android:layout_marginTop="12dp"
-                android:background="@drawable/bg_btn_gray" android:clickable="true" android:focusable="true" android:gravity="center" android:orientation="horizontal">
-                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="Log out" android:src="@drawable/ic_logout" app:tint="@color/text_dark" />
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:text="Log out" android:textColor="@color/text_dark" android:textSize="16sp" android:textStyle="bold" />
+            
+            <LinearLayout android:id="@+id/btnLogout" android:layout_width="match_parent" android:layout_height="52dp" android:layout_marginTop="12dp" android:background="@drawable/bg_btn_gray" android:clickable="true" android:focusable="true" android:gravity="center" android:orientation="horizontal">
+                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="Log out" android:src="@drawable/ic_logout" app:tint="@color/text_dark" android:tag="i:ic_logout" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:text="Log out" android:textColor="@color/text_dark" android:textSize="16sp" android:textStyle="bold" android:tag="t:Log out" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

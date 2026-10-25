@@ -1,382 +1,152 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/bg_cream"
-    android:fillViewport="true">
+<?xml version='1.0' encoding='utf-8'?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/bg_cream" android:fillViewport="true">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
 
-        <!-- Header: back arrow, title, step counter -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+        
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/btnBack"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:contentDescription="Back"
-                android:src="@drawable/ic_arrow_back"
-                app:tint="@color/text_dark" />
+            <ImageView android:id="@+id/btnBack" android:layout_width="28dp" android:layout_height="28dp" android:contentDescription="Back" android:src="@drawable/ic_arrow_back" app:tint="@color/text_dark" android:tag="i:ic_arrow_back" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_weight="1"
-                android:text="Create account"
-                android:textColor="@color/text_dark"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="12dp" android:layout_weight="1" android:text="Create account" android:textColor="@color/text_dark" android:textSize="20sp" android:textStyle="bold" android:tag="t:Create account" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Step 2 of 3"
-                android:textColor="@color/text_gray"
-                android:textSize="14sp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Step 2 of 3" android:textColor="@color/text_gray" android:textSize="14sp" android:tag="t:Step 2 of 3" />
         </LinearLayout>
 
-        <!-- 3 progress bars: two filled, one grey -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:orientation="horizontal">
+        
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:orientation="horizontal">
 
-            <View android:layout_width="0dp" android:layout_height="4dp" android:layout_weight="1"
-                android:background="@drawable/bg_bar" android:backgroundTint="@color/primary" />
-            <View android:layout_width="0dp" android:layout_height="4dp" android:layout_weight="1"
-                android:layout_marginStart="6dp"
-                android:background="@drawable/bg_bar" android:backgroundTint="@color/primary" />
-            <View android:layout_width="0dp" android:layout_height="4dp" android:layout_weight="1"
-                android:layout_marginStart="6dp"
-                android:background="@drawable/bg_bar" android:backgroundTint="@color/chip_gray" />
+            <View android:layout_width="0dp" android:layout_height="4dp" android:layout_weight="1" android:background="@drawable/bg_bar" android:backgroundTint="@color/primary" />
+            <View android:layout_width="0dp" android:layout_height="4dp" android:layout_weight="1" android:layout_marginStart="6dp" android:background="@drawable/bg_bar" android:backgroundTint="@color/primary" />
+            <View android:layout_width="0dp" android:layout_height="4dp" android:layout_weight="1" android:layout_marginStart="6dp" android:background="@drawable/bg_bar" android:backgroundTint="@color/chip_gray" />
         </LinearLayout>
 
-        <!-- Heading + dashed avatar with camera badge -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+        
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:gravity="center_vertical" android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="What's your name and birthday?"
-                android:textColor="@color/text_dark"
-                android:textSize="26sp"
-                android:textStyle="bold" />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="What's your name and birthday?" android:textColor="@color/text_dark" android:textSize="26sp" android:textStyle="bold" android:tag="t:What\'s your name and birthday?" />
 
-            <FrameLayout
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="12dp">
+            <FrameLayout android:layout_width="80dp" android:layout_height="80dp" android:layout_marginStart="12dp">
 
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/bg_avatar_dashed">
+                <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_avatar_dashed">
 
-                    <ImageView
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:layout_gravity="center"
-                        android:contentDescription="Profile photo"
-                        android:src="@drawable/ic_person"
-                        app:tint="@color/text_gray" />
+                    <ImageView android:layout_width="36dp" android:layout_height="36dp" android:layout_gravity="center" android:contentDescription="Profile photo" android:src="@drawable/ic_person" app:tint="@color/text_gray" android:tag="i:ic_person" />
                 </FrameLayout>
 
-                <!-- Camera badge overlapping bottom-right -->
-                <FrameLayout
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
-                    android:layout_gravity="bottom|end"
-                    android:background="@drawable/bg_avatar">
+                
+                <FrameLayout android:layout_width="26dp" android:layout_height="26dp" android:layout_gravity="bottom|end" android:background="@drawable/bg_avatar">
 
-                    <ImageView
-                        android:layout_width="14dp"
-                        android:layout_height="14dp"
-                        android:layout_gravity="center"
-                        android:contentDescription="Add photo"
-                        android:src="@drawable/ic_camera"
-                        app:tint="@color/white" />
+                    <ImageView android:layout_width="14dp" android:layout_height="14dp" android:layout_gravity="center" android:contentDescription="Add photo" android:src="@drawable/ic_camera" app:tint="@color/white" android:tag="i:ic_camera" />
                 </FrameLayout>
             </FrameLayout>
         </LinearLayout>
 
-        <!-- First name / Last name -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal">
+        
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/bg_input"
-                android:orientation="vertical"
-                android:padding="12dp">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:background="@drawable/bg_input" android:orientation="vertical" android:padding="12dp">
 
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="First name" android:textColor="@color/text_gray" android:textSize="12sp" />
-                <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:background="@null" android:minHeight="0dp" android:padding="0dp"
-                    android:singleLine="true" android:text="Jacob"
-                    android:textColor="@color/text_dark" android:textSize="16sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="First name" android:textColor="@color/text_gray" android:textSize="12sp" android:tag="t:First name" />
+                <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@null" android:minHeight="0dp" android:padding="0dp" android:singleLine="true" android:textColor="@color/text_dark" android:textSize="16sp" android:tag="t:Jacob" android:id="@+id/signupFirst" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_input"
-                android:orientation="vertical"
-                android:padding="12dp">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:layout_weight="1" android:background="@drawable/bg_input" android:orientation="vertical" android:padding="12dp">
 
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="Last name" android:textColor="@color/text_gray" android:textSize="12sp" />
-                <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:background="@null" android:minHeight="0dp" android:padding="0dp"
-                    android:singleLine="true" android:text="West"
-                    android:textColor="@color/text_dark" android:textSize="16sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Last name" android:textColor="@color/text_gray" android:textSize="12sp" android:tag="t:Last name" />
+                <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@null" android:minHeight="0dp" android:padding="0dp" android:singleLine="true" android:textColor="@color/text_dark" android:textSize="16sp" android:tag="t:West" android:id="@+id/signupLast" />
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Birthday label with info icon -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+        
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:gravity="center_vertical" android:orientation="horizontal">
 
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="Birthday" android:textColor="@color/text_dark"
-                android:textSize="15sp" android:textStyle="bold" />
-            <ImageView android:layout_width="16dp" android:layout_height="16dp"
-                android:layout_marginStart="6dp" android:contentDescription="Info"
-                android:src="@drawable/ic_info" app:tint="@color/text_gray" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Birthday" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" android:tag="t:Birthday" />
+            <ImageView android:layout_width="16dp" android:layout_height="16dp" android:layout_marginStart="6dp" android:contentDescription="Info" android:src="@drawable/ic_info" app:tint="@color/text_gray" android:tag="i:ic_info" />
         </LinearLayout>
 
-        <!-- Day / Month / Year (static dropdown look) -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal">
+        
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_weight="1" android:background="@drawable/bg_input"
-                android:gravity="center_vertical" android:orientation="horizontal"
-                android:padding="12dp">
-                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                    android:layout_weight="1" android:orientation="vertical">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="Day" android:textColor="@color/text_gray" android:textSize="12sp" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="14" android:textColor="@color/text_dark" android:textSize="16sp" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:background="@drawable/bg_input" android:gravity="center_vertical" android:orientation="horizontal" android:padding="12dp">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Day" android:textColor="@color/text_gray" android:textSize="12sp" android:tag="t:Day" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="14" android:textColor="@color/text_dark" android:textSize="16sp" android:tag="t:14" />
                 </LinearLayout>
-                <ImageView android:layout_width="20dp" android:layout_height="20dp"
-                    android:src="@drawable/ic_chevron_down" app:tint="@color/text_dark"
-                    android:contentDescription="Open" />
+                <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_chevron_down" app:tint="@color/text_dark" android:contentDescription="Open" android:tag="i:ic_chevron_down" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_weight="1" android:background="@drawable/bg_input"
-                android:gravity="center_vertical" android:orientation="horizontal"
-                android:padding="12dp">
-                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                    android:layout_weight="1" android:orientation="vertical">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="Month" android:textColor="@color/text_gray" android:textSize="12sp" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="Mar" android:textColor="@color/text_dark" android:textSize="16sp" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:layout_weight="1" android:background="@drawable/bg_input" android:gravity="center_vertical" android:orientation="horizontal" android:padding="12dp">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Month" android:textColor="@color/text_gray" android:textSize="12sp" android:tag="t:Month" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Mar" android:textColor="@color/text_dark" android:textSize="16sp" android:tag="t:Mar" />
                 </LinearLayout>
-                <ImageView android:layout_width="20dp" android:layout_height="20dp"
-                    android:src="@drawable/ic_chevron_down" app:tint="@color/text_dark"
-                    android:contentDescription="Open" />
+                <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_chevron_down" app:tint="@color/text_dark" android:contentDescription="Open" android:tag="i:ic_chevron_down" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_weight="1" android:background="@drawable/bg_input"
-                android:gravity="center_vertical" android:orientation="horizontal"
-                android:padding="12dp">
-                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                    android:layout_weight="1" android:orientation="vertical">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="Year" android:textColor="@color/text_gray" android:textSize="12sp" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="2004" android:textColor="@color/text_dark" android:textSize="16sp" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:layout_weight="1" android:background="@drawable/bg_input" android:gravity="center_vertical" android:orientation="horizontal" android:padding="12dp">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Year" android:textColor="@color/text_gray" android:textSize="12sp" android:tag="t:Year" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2004" android:textColor="@color/text_dark" android:textSize="16sp" android:tag="t:2004" />
                 </LinearLayout>
-                <ImageView android:layout_width="20dp" android:layout_height="20dp"
-                    android:src="@drawable/ic_chevron_down" app:tint="@color/text_dark"
-                    android:contentDescription="Open" />
+                <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_chevron_down" app:tint="@color/text_dark" android:contentDescription="Open" android:tag="i:ic_chevron_down" />
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Gender -->
-        <TextView
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginTop="16dp" android:text="Gender"
-            android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" />
+        
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Gender" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" android:tag="t:Gender" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1"
-                android:background="@drawable/bg_input" android:gravity="center_vertical"
-                android:orientation="horizontal" android:paddingStart="12dp" android:paddingEnd="4dp">
-                <TextView android:layout_width="0dp" android:layout_height="wrap_content"
-                    android:layout_weight="1" android:text="Female"
-                    android:textColor="@color/text_dark" android:textSize="15sp" />
-                <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:buttonTint="@color/primary" android:clickable="false" android:checked="false" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1" android:background="@drawable/bg_input" android:gravity="center_vertical" android:orientation="horizontal" android:paddingStart="12dp" android:paddingEnd="4dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Female" android:textColor="@color/text_dark" android:textSize="15sp" android:tag="t:Female" />
+                <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:buttonTint="@color/primary" android:clickable="false" android:checked="false" />
             </LinearLayout>
 
-            <!-- Selected card (teal border) -->
-            <LinearLayout
-                android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1"
-                android:layout_marginStart="10dp"
-                android:background="@drawable/bg_input_selected" android:gravity="center_vertical"
-                android:orientation="horizontal" android:paddingStart="12dp" android:paddingEnd="4dp">
-                <TextView android:layout_width="0dp" android:layout_height="wrap_content"
-                    android:layout_weight="1" android:text="Male"
-                    android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" />
-                <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:buttonTint="@color/primary" android:clickable="false" android:checked="true" />
+            
+            <LinearLayout android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1" android:layout_marginStart="10dp" android:background="@drawable/bg_input_selected" android:gravity="center_vertical" android:orientation="horizontal" android:paddingStart="12dp" android:paddingEnd="4dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Male" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" android:tag="t:Male" />
+                <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:buttonTint="@color/primary" android:clickable="false" android:checked="true" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1"
-                android:layout_marginStart="10dp"
-                android:background="@drawable/bg_input" android:gravity="center_vertical"
-                android:orientation="horizontal" android:paddingStart="12dp" android:paddingEnd="4dp">
-                <TextView android:layout_width="0dp" android:layout_height="wrap_content"
-                    android:layout_weight="1" android:text="Custom"
-                    android:textColor="@color/text_dark" android:textSize="15sp" />
-                <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:buttonTint="@color/primary" android:clickable="false" android:checked="false" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1" android:layout_marginStart="10dp" android:background="@drawable/bg_input" android:gravity="center_vertical" android:orientation="horizontal" android:paddingStart="12dp" android:paddingEnd="4dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Custom" android:textColor="@color/text_dark" android:textSize="15sp" android:tag="t:Custom" />
+                <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:buttonTint="@color/primary" android:clickable="false" android:checked="false" />
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Email -->
-        <LinearLayout
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_marginTop="14dp" android:background="@drawable/bg_input"
-            android:orientation="vertical" android:padding="12dp">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="Email" android:textColor="@color/text_gray" android:textSize="12sp" />
-            <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:background="@null" android:inputType="textEmailAddress"
-                android:minHeight="0dp" android:padding="0dp" android:singleLine="true"
-                android:text="jacob.west@mail.com"
-                android:textColor="@color/text_dark" android:textSize="16sp" />
+        
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:background="@drawable/bg_input" android:orientation="vertical" android:padding="12dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Email" android:textColor="@color/text_gray" android:textSize="12sp" android:tag="t:Email" />
+            <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@null" android:inputType="textEmailAddress" android:minHeight="0dp" android:padding="0dp" android:singleLine="true" android:textColor="@color/text_dark" android:textSize="16sp" android:tag="t:jacob.west@mail.com" android:id="@+id/signupEmail" />
         </LinearLayout>
 
-        <!-- New password with eye icon -->
-        <LinearLayout
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_marginTop="10dp" android:background="@drawable/bg_input"
-            android:gravity="center_vertical" android:orientation="horizontal" android:padding="12dp">
-            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_weight="1" android:orientation="vertical">
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="New password" android:textColor="@color/text_gray" android:textSize="12sp" />
-                <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:background="@null" android:inputType="textPassword"
-                    android:minHeight="0dp" android:padding="0dp" android:singleLine="true"
-                    android:text="password12"
-                    android:textColor="@color/text_dark" android:textSize="16sp" />
+        
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:background="@drawable/bg_input" android:gravity="center_vertical" android:orientation="horizontal" android:padding="12dp">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="New password" android:textColor="@color/text_gray" android:textSize="12sp" android:tag="t:New password" />
+                <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@null" android:inputType="textPassword" android:minHeight="0dp" android:padding="0dp" android:singleLine="true" android:textColor="@color/text_dark" android:textSize="16sp" android:tag="t:password12" android:id="@+id/signupPassword" />
             </LinearLayout>
-            <ImageView android:layout_width="24dp" android:layout_height="24dp"
-                android:contentDescription="Show password"
-                android:src="@drawable/ic_eye" app:tint="@color/text_gray" />
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:contentDescription="Show password" android:src="@drawable/ic_eye" app:tint="@color/text_gray" android:tag="i:ic_eye" />
         </LinearLayout>
 
-        <!-- Password strength: 2 red bars, 1 grey, "Medium" -->
-        <LinearLayout
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_marginTop="8dp" android:gravity="center_vertical"
-            android:orientation="horizontal">
-            <View android:layout_width="0dp" android:layout_height="4dp" android:layout_weight="1"
-                android:background="@drawable/bg_bar" android:backgroundTint="@color/badge_red" />
-            <View android:layout_width="0dp" android:layout_height="4dp" android:layout_weight="1"
-                android:layout_marginStart="6dp"
-                android:background="@drawable/bg_bar" android:backgroundTint="@color/badge_red" />
-            <View android:layout_width="0dp" android:layout_height="4dp" android:layout_weight="1"
-                android:layout_marginStart="6dp"
-                android:background="@drawable/bg_bar" android:backgroundTint="@color/chip_gray" />
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:layout_marginStart="10dp" android:text="Medium"
-                android:textColor="@color/badge_red" android:textSize="14sp" android:textStyle="bold" />
+        
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:gravity="center_vertical" android:orientation="horizontal">
+            <View android:layout_width="0dp" android:layout_height="4dp" android:layout_weight="1" android:background="@drawable/bg_bar" android:backgroundTint="@color/badge_red" />
+            <View android:layout_width="0dp" android:layout_height="4dp" android:layout_weight="1" android:layout_marginStart="6dp" android:background="@drawable/bg_bar" android:backgroundTint="@color/badge_red" />
+            <View android:layout_width="0dp" android:layout_height="4dp" android:layout_weight="1" android:layout_marginStart="6dp" android:background="@drawable/bg_bar" android:backgroundTint="@color/chip_gray" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:text="Medium" android:textColor="@color/badge_red" android:textSize="14sp" android:textStyle="bold" android:tag="t:Medium" />
         </LinearLayout>
 
-        <!-- Terms checkbox -->
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:buttonTint="@color/primary"
-            android:checked="true"
-            android:clickable="false"
-            android:text="I agree to the Kinnect Terms and Privacy Policy."
-            android:textColor="@color/text_gray"
-            android:textSize="14sp" />
+        
+        <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:buttonTint="@color/primary" android:checked="false" android:clickable="true" android:text="I agree to the Kinnect Terms and Privacy Policy." android:textColor="@color/text_gray" android:textSize="14sp" android:tag="t:I agree to the Kinnect Terms and Privacy Policy." android:id="@+id/signupTerms" />
 
-        <!-- Create account button -->
-        <TextView
-            android:id="@+id/btnCreateAccount"
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/bg_button_primary"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:text="Create account"
-            android:textColor="@color/white"
-            android:textSize="17sp"
-            android:textStyle="bold" />
+        
+        <TextView android:id="@+id/btnCreateAccount" android:layout_width="match_parent" android:layout_height="52dp" android:layout_marginTop="10dp" android:background="@drawable/bg_button_primary" android:clickable="true" android:focusable="true" android:gravity="center" android:text="Create account" android:textColor="@color/white" android:textSize="17sp" android:textStyle="bold" android:tag="t:Create account" />
 
-        <!-- Already have an account? Log in -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="Already have an account? "
-                android:textColor="@color/text_gray" android:textSize="15sp" />
-            <TextView
-                android:id="@+id/btnLoginLink"
-                android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="Log in" android:textColor="@color/primary"
-                android:textSize="15sp" android:textStyle="bold" />
+        
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:layout_marginTop="16dp" android:orientation="horizontal">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Already have an account? " android:textColor="@color/text_gray" android:textSize="15sp" android:tag="t:Already have an account? " />
+            <TextView android:id="@+id/btnLoginLink" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Log in" android:textColor="@color/primary" android:textSize="15sp" android:textStyle="bold" android:tag="t:Log in" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

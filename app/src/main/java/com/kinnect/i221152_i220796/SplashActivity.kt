@@ -1,22 +1,10 @@
 package com.kinnect.i221152_i220796
 
+import android.os.*
 import android.content.Intent
-import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import androidx.appcompat.app.AppCompatActivity
-
-/** Screen 01: shows the logo for 2 seconds, then opens Login. */
-class SplashActivity : LiveActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
-
-        // Wait 2 seconds, then go to Login
-        Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish() // removes Splash so Back never returns to it
-        }, 2000)
-    }
+class SplashActivity:LiveActivity(){
+ private val handler=Handler(Looper.getMainLooper())
+ private val route=Runnable{if(Backend.uid.isEmpty()){go(LoginActivity::class.java);finish()}else once("users/${Backend.uid}"){u->if(u.b("setupComplete")){go(HomeActivity::class.java);if(intent.hasExtra("chatId"))go(ChatActivity::class.java,"chatId" to intent.getStringExtra("chatId").orEmpty(),"other" to intent.getStringExtra("other").orEmpty());if(intent.hasExtra("callId"))go(VoiceCallActivity::class.java,"callId" to intent.getStringExtra("callId").orEmpty())}else go(EditProfileActivity::class.java);finish()}}
+ override fun onCreate(b:Bundle?){super.onCreate(b);setContentView(R.layout.activity_splash);handler.postDelayed(route,5000)}
+ override fun onDestroy(){handler.removeCallbacks(route);super.onDestroy()}
 }
