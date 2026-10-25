@@ -9,3 +9,5 @@ Add only checks you actually performed, with date, device/API and results.
 - Stage 3, 2026-10-25 14:16:18Z, Faez Ali: On Infinix Note 11: selected and saved the avatar; it now appears on the profile. Name and bio save correctly; friend count shows 0.
 
 - Stage 4, 2026-10-25 14:38:30Z, Faez Ali: searched for the second account and opened its profile
+
+- Stage 5, 2026-10-25 14:45:28Z, Faez Ali: On Infinix Note 11: searched for the second account by exact and partial username; the result appeared and its profile opened. A nonexistent search showed no result without crashing.

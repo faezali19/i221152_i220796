@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="10dp" android:paddingBottom="6dp">
+                <TextView android:layout_width="76dp" android:layout_height="76dp" android:background="@drawable/bg_avatar" android:backgroundTint="@color/av_indigo" android:gravity="center" android:text="SI" android:textColor="@color/white" android:textSize="26sp" android:textStyle="bold" android:tag="t:SI" />
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="12dp" android:layout_weight="1" android:orientation="vertical">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Sara Iqbal" android:textColor="@color/text_dark" android:textSize="16sp" android:textStyle="bold" android:tag="t:Sara Iqbal" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3d" android:textColor="@color/text_gray" android:textSize="13sp" android:tag="t:3d" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:gravity="center_vertical" android:orientation="horizontal">
+                        <FrameLayout android:layout_width="34dp" android:layout_height="20dp">
+                            <View android:layout_width="20dp" android:layout_height="20dp" android:background="@drawable/bg_avatar" android:backgroundTint="@color/av_indigo" />
+                            <View android:layout_width="20dp" android:layout_height="20dp" android:layout_marginStart="14dp" android:background="@drawable/bg_avatar" android:backgroundTint="@color/av_brown" />
+                        </FrameLayout>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="4dp" android:text="8 mutual friends" android:textColor="@color/text_gray" android:textSize="14sp" android:tag="t:8 mutual friends" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_weight="1" android:background="@drawable/bg_btn_confirm" android:gravity="center" android:text="Confirm" android:textColor="@color/white" android:textSize="15sp" android:textStyle="bold" android:tag="t:Confirm" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_marginStart="8dp" android:layout_weight="1" android:background="@drawable/bg_btn_gray" android:gravity="center" android:text="Delete" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" android:tag="t:Delete" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            
+            

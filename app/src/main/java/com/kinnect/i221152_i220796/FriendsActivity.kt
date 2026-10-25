@@ -1,41 +1,7 @@
 package com.kinnect.i221152_i220796
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-
-/** UI-only navigation. Intent extras carry the selected display identity, not account data. */
-class FriendsActivity : BaseTabActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_friends)
-        setupTabs(1, "Friends")
-        findViewById<View>(R.id.requestRow1).setOnClickListener {
-            val intent = Intent(this, OtherProfileActivity::class.java)
-            intent.putExtra("person_name", "Sara Iqbal")
-            intent.putExtra("person_initials", "SI")
-            startActivity(intent)
-        }
-        findViewById<View>(R.id.requestRow2).setOnClickListener {
-            val intent = Intent(this, OtherProfileActivity::class.java)
-            intent.putExtra("person_name", "Bilal Ahmed")
-            intent.putExtra("person_initials", "BA")
-            startActivity(intent)
-        }
-        findViewById<View>(R.id.requestRow3).setOnClickListener {
-            val intent = Intent(this, OtherProfileActivity::class.java)
-            intent.putExtra("person_name", "Noor Fatima")
-            intent.putExtra("person_initials", "NF")
-            startActivity(intent)
-        }
-        findViewById<View>(R.id.requestRow4).setOnClickListener {
-            val intent = Intent(this, OtherProfileActivity::class.java)
-            intent.putExtra("person_name", "Daniyal Shah")
-            intent.putExtra("person_initials", "DS")
-            startActivity(intent)
-        }
-
-    }
+class FriendsActivity:BaseTabActivity(){private var requests:Record=emptyMap();private var friends:Record=emptyMap();private var users:Record=emptyMap();private var mode=false
+ override fun onCreate(b:Bundle?){super.onCreate(b);setContentView(R.layout.activity_friends);setupTabs(1,"Friends");watch("users"){users=it;show()};watch("requests/${Backend.uid}"){requests=it;show()};watch("friends/${Backend.uid}"){friends=it;show()};tap("Your friends"){mode=true;show()};tap("Friend requests"){mode=false;show()};tap("Suggestions"){go(SearchActivity::class.java)};tap("See all"){mode=!mode;show()}}
+ private fun show(){root.set("12",requests.size.toString());val rows=(if(mode)friends else requests).keys.map{users.obj(it)+mapOf("id" to it)};list(R.id.friendsList,R.layout.item_friends,rows){v,u->v.set("SI",initials(u.s("name")));v.set("Sara Iqbal",u.s("name"));v.set("3d",if(mode)"Friend" else age(requests.obj(u.s("id")).n("createdAt")));v.set("8 mutual friends", "@${u.s("username")}");v.label("Sara Iqbal")?.setOnClickListener{profile(u.s("id"))};v.set("Confirm",if(mode)"Message" else "Confirm");v.set("Delete",if(mode)"Close friend" else "Delete");v.label("Confirm")?.setOnClickListener{if(mode)openChat(u.s("id"))else api("friend",mapOf("other" to u.s("id"),"operation" to "accept"))};v.label("Delete")?.setOnClickListener{if(mode)once("closeFriends/${Backend.uid}"){c->api("friend",mapOf("other" to u.s("id"),"operation" to "close","enabled" to !c.b(u.s("id")))){toast("Close friends updated")}}else api("friend",mapOf("other" to u.s("id"),"operation" to "delete"))}}}
 }
