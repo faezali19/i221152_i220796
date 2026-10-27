@@ -11,3 +11,5 @@ Add only checks you actually performed, with date, device/API and results.
 - Stage 4, 2026-10-25 14:38:30Z, Faez Ali: searched for the second account and opened its profile
 
 - Stage 5, 2026-10-25 14:45:28Z, Faez Ali: On Infinix Note 11: searched for the second account by exact and partial username; the result appeared and its profile opened. A nonexistent search showed no result without crashing.
+
+- Stage 6, 2026-10-27 15:53:22Z, Faez Ali: On my Infinix Note 11, selected multiple gallery images and confirmed their previews in Create Post; captured a photo and confirmed its preview; recorded a video and confirmed its preview in Story Editor.
