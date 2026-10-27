@@ -1,619 +1,102 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/homeFeedRoot"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical">
+<?xml version='1.0' encoding='utf-8'?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/homeFeedRoot" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/white" android:orientation="vertical">
 
-    <!-- Shared header + tabs -->
+    
     <include layout="@layout/layout_top_tabs" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
 
-            <!-- "What's on your mind" composer row -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="12dp">
+            
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal" android:padding="12dp">
 
-                <TextView
-                    android:id="@+id/composerAvatar"
-                    android:layout_width="38dp"
-                    android:layout_height="38dp"
-                    android:background="@drawable/bg_avatar"
-                    android:gravity="center"
-                    android:text="JW"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                <TextView android:id="@+id/composerAvatar" android:layout_width="38dp" android:layout_height="38dp" android:background="@drawable/bg_avatar" android:gravity="center" android:text="JW" android:textColor="@color/white" android:textSize="14sp" android:textStyle="bold" android:tag="t:JW" />
 
-                <TextView
-                    android:id="@+id/composerBox"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_pill"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:text="What's on your mind, Jacob?"
-                    android:textColor="@color/text_gray"
-                    android:textSize="15sp" />
+                <TextView android:id="@+id/composerBox" android:layout_width="0dp" android:layout_height="40dp" android:layout_marginStart="10dp" android:layout_weight="1" android:background="@drawable/bg_pill" android:clickable="true" android:focusable="true" android:gravity="center_vertical" android:paddingStart="16dp" android:text="What's on your mind, Jacob?" android:textColor="@color/text_gray" android:textSize="15sp" android:tag="t:What\'s on your mind, Jacob?" />
 
-                <ImageView
-                    android:id="@+id/btnPhotoIcon"
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
-                    android:layout_marginStart="12dp"
-                    android:contentDescription="Photo"
-                    android:src="@drawable/ic_image"
-                    app:tint="@color/primary" />
+                <ImageView android:id="@+id/btnPhotoIcon" android:layout_width="26dp" android:layout_height="26dp" android:layout_marginStart="12dp" android:contentDescription="Photo" android:src="@drawable/ic_image" app:tint="@color/primary" android:tag="i:ic_image" />
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="8dp"
-                android:background="@color/divider_thick" />
+            <View android:layout_width="match_parent" android:layout_height="8dp" android:background="@color/divider_thick" />
 
-            <!-- Stories (swipe sideways) -->
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scrollbars="none">
+            
+            <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content" android:scrollbars="none">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingStart="12dp"
-                    android:paddingTop="12dp"
-                    android:paddingEnd="4dp"
-                    android:paddingBottom="12dp">
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingStart="12dp" android:paddingTop="12dp" android:paddingEnd="4dp" android:paddingBottom="12dp">
 
-                    <!-- Create story card -->
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/storyCreate"
-                        android:layout_width="96dp"
-                        android:layout_height="162dp"
-                        android:layout_marginEnd="8dp"
-                        android:clickable="true"
-                        android:focusable="true"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="14dp"
-                        app:cardElevation="0dp"
-                        app:strokeColor="@color/stroke_light"
-                        app:strokeWidth="1dp">
+                    
+                    <com.google.android.material.card.MaterialCardView android:id="@+id/storyCreate" android:layout_width="96dp" android:layout_height="162dp" android:layout_marginEnd="8dp" android:clickable="true" android:focusable="true" app:cardBackgroundColor="@color/white" app:cardCornerRadius="14dp" app:cardElevation="0dp" app:strokeColor="@color/stroke_light" app:strokeWidth="1dp">
 
-                        <FrameLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                        <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
 
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="108dp"
-                                android:background="@color/story_create_bg" />
+                            <View android:layout_width="match_parent" android:layout_height="108dp" android:background="@color/story_create_bg" />
 
-                            <TextView
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_gravity="top|center_horizontal"
-                                android:layout_marginTop="22dp"
-                                android:background="@drawable/bg_avatar"
-                                android:gravity="center"
-                                android:text="JW"
-                                android:textColor="@color/white"
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
+                            <TextView android:layout_width="60dp" android:layout_height="60dp" android:layout_gravity="top|center_horizontal" android:layout_marginTop="22dp" android:background="@drawable/bg_avatar" android:gravity="center" android:text="JW" android:textColor="@color/white" android:textSize="20sp" android:textStyle="bold" android:tag="t:JW" />
 
-                            <!-- "+" badge overlapping the boundary -->
-                            <FrameLayout
-                                android:layout_width="28dp"
-                                android:layout_height="28dp"
-                                android:layout_gravity="top|center_horizontal"
-                                android:layout_marginTop="94dp"
-                                android:background="@drawable/bg_avatar_ring">
+                            
+                            <FrameLayout android:layout_width="28dp" android:layout_height="28dp" android:layout_gravity="top|center_horizontal" android:layout_marginTop="94dp" android:background="@drawable/bg_avatar_ring">
 
-                                <ImageView
-                                    android:layout_width="14dp"
-                                    android:layout_height="14dp"
-                                    android:layout_gravity="center"
-                                    android:contentDescription="Create story"
-                                    android:src="@drawable/ic_plus"
-                                    app:tint="@color/white" />
+                                <ImageView android:layout_width="14dp" android:layout_height="14dp" android:layout_gravity="center" android:contentDescription="Create story" android:src="@drawable/ic_plus" app:tint="@color/white" android:tag="i:ic_plus" />
                             </FrameLayout>
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="bottom|center_horizontal"
-                                android:layout_marginBottom="10dp"
-                                android:text="Create story"
-                                android:textColor="@color/text_dark"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="bottom|center_horizontal" android:layout_marginBottom="10dp" android:text="Create story" android:textColor="@color/text_dark" android:textSize="12sp" android:textStyle="bold" android:tag="t:Create story" />
                         </FrameLayout>
                     </com.google.android.material.card.MaterialCardView>
 
-                    <!-- Omar Farooq story -->
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/storyOmar"
-                        android:layout_width="96dp"
-                        android:layout_height="162dp"
-                        android:layout_marginEnd="8dp"
-                        android:clickable="true"
-                        android:focusable="true"
-                        app:cardCornerRadius="14dp"
-                        app:cardElevation="0dp">
+                    
+                    <com.google.android.material.card.MaterialCardView android:id="@+id/storyOmar" android:layout_width="96dp" android:layout_height="162dp" android:layout_marginEnd="8dp" android:clickable="true" android:focusable="true" app:cardCornerRadius="14dp" app:cardElevation="0dp">
 
-                        <FrameLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                        <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
 
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@color/ph_navy"
-                                android:contentDescription="@null"
-                                android:scaleType="centerCrop"
-                                android:src="@drawable/ph_scene" />
+                            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/ph_navy" android:contentDescription="@null" android:scaleType="centerCrop" android:src="@drawable/ph_scene" android:tag="i:ph_scene" />
 
-                            <FrameLayout
-                                android:layout_width="36dp"
-                                android:layout_height="36dp"
-                                android:layout_gravity="top|start"
-                                android:layout_margin="8dp"
-                                android:background="@drawable/bg_story_ring">
+                            <FrameLayout android:layout_width="36dp" android:layout_height="36dp" android:layout_gravity="top|start" android:layout_margin="8dp" android:background="@drawable/bg_story_ring">
 
-                                <TextView
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
-                                    android:layout_gravity="center"
-                                    android:background="@drawable/bg_avatar"
-                                    android:backgroundTint="@color/av_green"
-                                    android:gravity="center"
-                                    android:text="OF"
-                                    android:textColor="@color/white"
-                                    android:textSize="11sp"
-                                    android:textStyle="bold" />
+                                <TextView android:layout_width="30dp" android:layout_height="30dp" android:layout_gravity="center" android:background="@drawable/bg_avatar" android:backgroundTint="@color/av_green" android:gravity="center" android:text="OF" android:textColor="@color/white" android:textSize="11sp" android:textStyle="bold" android:tag="t:OF" />
                             </FrameLayout>
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="bottom|start"
-                                android:layout_margin="8dp"
-                                android:text="Omar Farooq"
-                                android:textColor="@color/white"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="bottom|start" android:layout_margin="8dp" android:text="Omar Farooq" android:textColor="@color/white" android:textSize="12sp" android:textStyle="bold" android:tag="t:Omar Farooq" />
                         </FrameLayout>
                     </com.google.android.material.card.MaterialCardView>
 
-                    <!-- Sara Iqbal story -->
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="96dp"
-                        android:layout_height="162dp"
-                        android:layout_marginEnd="8dp"
-                        android:clickable="true"
-                        android:focusable="true"
-                        app:cardCornerRadius="14dp"
-                        app:cardElevation="0dp">
+                    
+                    <com.google.android.material.card.MaterialCardView android:layout_width="96dp" android:layout_height="162dp" android:layout_marginEnd="8dp" android:clickable="true" android:focusable="true" app:cardCornerRadius="14dp" app:cardElevation="0dp">
 
-                        <FrameLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                        <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
 
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@color/ph_pink"
-                                android:contentDescription="@null"
-                                android:scaleType="centerCrop"
-                                android:src="@drawable/ph_scene" />
+                            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/ph_pink" android:contentDescription="@null" android:scaleType="centerCrop" android:src="@drawable/ph_scene" android:tag="i:ph_scene" />
 
-                            <FrameLayout
-                                android:layout_width="36dp"
-                                android:layout_height="36dp"
-                                android:layout_gravity="top|start"
-                                android:layout_margin="8dp"
-                                android:background="@drawable/bg_story_ring">
+                            <FrameLayout android:layout_width="36dp" android:layout_height="36dp" android:layout_gravity="top|start" android:layout_margin="8dp" android:background="@drawable/bg_story_ring">
 
-                                <TextView
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
-                                    android:layout_gravity="center"
-                                    android:background="@drawable/bg_avatar"
-                                    android:backgroundTint="@color/av_indigo"
-                                    android:gravity="center"
-                                    android:text="SI"
-                                    android:textColor="@color/white"
-                                    android:textSize="11sp"
-                                    android:textStyle="bold" />
+                                <TextView android:layout_width="30dp" android:layout_height="30dp" android:layout_gravity="center" android:background="@drawable/bg_avatar" android:backgroundTint="@color/av_indigo" android:gravity="center" android:text="SI" android:textColor="@color/white" android:textSize="11sp" android:textStyle="bold" android:tag="t:SI" />
                             </FrameLayout>
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="bottom|start"
-                                android:layout_margin="8dp"
-                                android:text="Sara Iqbal"
-                                android:textColor="@color/white"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="bottom|start" android:layout_margin="8dp" android:text="Sara Iqbal" android:textColor="@color/white" android:textSize="12sp" android:textStyle="bold" android:tag="t:Sara Iqbal" />
                         </FrameLayout>
                     </com.google.android.material.card.MaterialCardView>
 
-                    <!-- Hamza Ali story (runs off the right edge, like the PDF) -->
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="96dp"
-                        android:layout_height="162dp"
-                        android:layout_marginEnd="8dp"
-                        android:clickable="true"
-                        android:focusable="true"
-                        app:cardCornerRadius="14dp"
-                        app:cardElevation="0dp">
+                    
+                    <com.google.android.material.card.MaterialCardView android:layout_width="96dp" android:layout_height="162dp" android:layout_marginEnd="8dp" android:clickable="true" android:focusable="true" app:cardCornerRadius="14dp" app:cardElevation="0dp">
 
-                        <FrameLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                        <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
 
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@color/ph_green"
-                                android:contentDescription="@null"
-                                android:scaleType="centerCrop"
-                                android:src="@drawable/ph_scene" />
+                            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/ph_green" android:contentDescription="@null" android:scaleType="centerCrop" android:src="@drawable/ph_scene" android:tag="i:ph_scene" />
 
-                            <FrameLayout
-                                android:layout_width="36dp"
-                                android:layout_height="36dp"
-                                android:layout_gravity="top|start"
-                                android:layout_margin="8dp"
-                                android:background="@drawable/bg_story_ring">
+                            <FrameLayout android:layout_width="36dp" android:layout_height="36dp" android:layout_gravity="top|start" android:layout_margin="8dp" android:background="@drawable/bg_story_ring">
 
-                                <TextView
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
-                                    android:layout_gravity="center"
-                                    android:background="@drawable/bg_avatar"
-                                    android:backgroundTint="@color/av_brown"
-                                    android:gravity="center"
-                                    android:text="HA"
-                                    android:textColor="@color/white"
-                                    android:textSize="11sp"
-                                    android:textStyle="bold" />
+                                <TextView android:layout_width="30dp" android:layout_height="30dp" android:layout_gravity="center" android:background="@drawable/bg_avatar" android:backgroundTint="@color/av_brown" android:gravity="center" android:text="HA" android:textColor="@color/white" android:textSize="11sp" android:textStyle="bold" android:tag="t:HA" />
                             </FrameLayout>
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="bottom|start"
-                                android:layout_margin="8dp"
-                                android:text="Hamza Ali"
-                                android:textColor="@color/white"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="bottom|start" android:layout_margin="8dp" android:text="Hamza Ali" android:textColor="@color/white" android:textSize="12sp" android:textStyle="bold" android:tag="t:Hamza Ali" />
                         </FrameLayout>
                     </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
             </HorizontalScrollView>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="8dp"
-                android:background="@color/divider_thick" />
+            <View android:layout_width="match_parent" android:layout_height="8dp" android:background="@color/divider_thick" />
 
-            <!-- Post header: avatar, "Lina Marsh is at Clifton Beach", time, more, close -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="12dp">
-
-                <TextView
-                    android:layout_width="38dp"
-                    android:layout_height="38dp"
-                    android:background="@drawable/bg_avatar"
-                    android:backgroundTint="@color/av_purple"
-                    android:gravity="center"
-                    android:text="LM"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/post_header"
-                        android:textColor="@color/text_dark"
-                        android:textSize="15sp" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="2h · "
-                            android:textColor="@color/text_gray"
-                            android:textSize="13sp" />
-
-                        <ImageView
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
-                            android:contentDescription="Public"
-                            android:src="@drawable/ic_globe"
-                            app:tint="@color/text_gray" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:contentDescription="More"
-                    android:src="@drawable/ic_more_horiz"
-                    app:tint="@color/text_gray" />
-
-                <ImageView
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:layout_marginStart="14dp"
-                    android:contentDescription="Hide post"
-                    android:src="@drawable/ic_close"
-                    app:tint="@color/text_gray" />
-            </LinearLayout>
-
-            <!-- Post text -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:paddingBottom="10dp"
-                android:text="Sunset walk with the crew. Worth every grain of sand in my shoes."
-                android:textColor="@color/text_dark"
-                android:textSize="15sp" />
-
-            <!-- Photo collage: one big photo left, two stacked right (+4 overlay) -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="240dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/ph_beige"
-                    android:contentDescription="@null"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ph_scene" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="2dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:background="@color/ph_teal"
-                        android:contentDescription="@null"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ph_scene" />
-
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_weight="1">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/ph_mauve"
-                            android:contentDescription="@null"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/ph_scene" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="+4"
-                            android:textColor="@color/white"
-                            android:textSize="28sp"
-                            android:textStyle="bold" />
-                    </FrameLayout>
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- Reactions summary row -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingStart="12dp"
-                android:paddingTop="10dp"
-                android:paddingEnd="12dp"
-                android:paddingBottom="10dp">
-
-                <!-- Three overlapping reaction circles -->
-                <FrameLayout
-                    android:layout_width="56dp"
-                    android:layout_height="24dp">
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/bg_avatar"
-                        android:contentDescription="Like"
-                        android:padding="5dp"
-                        android:src="@drawable/ic_thumb"
-                        app:tint="@color/white" />
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginStart="16dp"
-                        android:background="@drawable/bg_avatar"
-                        android:backgroundTint="@color/love_red"
-                        android:contentDescription="Love"
-                        android:padding="5dp"
-                        android:src="@drawable/ic_heart"
-                        app:tint="@color/white" />
-
-                    <View
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginStart="32dp"
-                        android:background="@drawable/bg_avatar"
-                        android:backgroundTint="@color/reaction_gold" />
-                </FrameLayout>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:layout_weight="1"
-                    android:text="Aisha and 1.2K others"
-                    android:textColor="@color/text_gray"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="86 comments · 12 shares"
-                    android:textColor="@color/text_gray"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
-                android:background="@color/stroke_light" />
-
-            <!-- Like / Comment / Share -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:id="@+id/btnLike"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:contentDescription="Like"
-                        android:src="@drawable/ic_thumb"
-                        app:tint="@color/text_gray" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:text="Like"
-                        android:textColor="@color/text_gray"
-                        android:textSize="15sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/btnComment"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:contentDescription="Comment"
-                        android:src="@drawable/ic_comment"
-                        app:tint="@color/text_gray" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:text="Comment"
-                        android:textColor="@color/text_gray"
-                        android:textSize="15sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/btnShare"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:contentDescription="Share"
-                        android:src="@drawable/ic_share"
-                        app:tint="@color/text_gray" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:text="Share"
-                        android:textColor="@color/text_gray"
-                        android:textSize="15sp" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="8dp"
-                android:background="@color/divider_thick" />
-        </LinearLayout>
+            
+            <androidx.recyclerview.widget.RecyclerView android:id="@+id/feedList" android:layout_width="match_parent" android:layout_height="wrap_content" android:nestedScrollingEnabled="false" /></LinearLayout>
     </ScrollView>
 </LinearLayout>

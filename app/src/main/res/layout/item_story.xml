@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="96dp" android:layout_height="162dp" android:layout_marginEnd="8dp" android:clickable="true" android:focusable="true" app:cardCornerRadius="14dp" app:cardElevation="0dp">
+
+                        <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+
+                            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/ph_navy" android:contentDescription="@null" android:scaleType="centerCrop" android:src="@drawable/ph_scene" android:tag="i:ph_scene" />
+
+                            <FrameLayout android:layout_width="36dp" android:layout_height="36dp" android:layout_gravity="top|start" android:layout_margin="8dp" android:background="@drawable/bg_story_ring">
+
+                                <TextView android:layout_width="30dp" android:layout_height="30dp" android:layout_gravity="center" android:background="@drawable/bg_avatar" android:backgroundTint="@color/av_green" android:gravity="center" android:text="OF" android:textColor="@color/white" android:textSize="11sp" android:textStyle="bold" android:tag="t:OF" />
+                            </FrameLayout>
+
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="bottom|start" android:layout_margin="8dp" android:text="Omar Farooq" android:textColor="@color/white" android:textSize="12sp" android:textStyle="bold" android:tag="t:Omar Farooq" />
+                        </FrameLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    
+                    

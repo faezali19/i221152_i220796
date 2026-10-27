@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal" android:padding="12dp">
+
+                <TextView android:layout_width="38dp" android:layout_height="38dp" android:background="@drawable/bg_avatar" android:backgroundTint="@color/av_purple" android:gravity="center" android:text="LM" android:textColor="@color/white" android:textSize="14sp" android:textStyle="bold" android:tag="t:LM" />
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:layout_weight="1" android:orientation="vertical">
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/post_header" android:textColor="@color/text_dark" android:textSize="15sp" android:tag="t:Lina Marsh is at Clifton Beach" />
+
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2h · " android:textColor="@color/text_gray" android:textSize="13sp" android:tag="t:2h · " />
+
+                        <ImageView android:layout_width="12dp" android:layout_height="12dp" android:contentDescription="Public" android:src="@drawable/ic_globe" app:tint="@color/text_gray" android:tag="i:ic_globe" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:contentDescription="More" android:src="@drawable/ic_more_horiz" app:tint="@color/text_gray" android:tag="i:ic_more_horiz" />
+
+                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:layout_marginStart="14dp" android:contentDescription="Hide post" android:src="@drawable/ic_close" app:tint="@color/text_gray" android:tag="i:ic_close" />
+            </LinearLayout>
+
+            
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="12dp" android:paddingEnd="12dp" android:paddingBottom="10dp" android:text="Sunset walk with the crew. Worth every grain of sand in my shoes." android:textColor="@color/text_dark" android:textSize="15sp" android:tag="t:Sunset walk with the crew. Worth every grain of sand in my shoes." />
+
+            
+            <LinearLayout android:layout_width="match_parent" android:layout_height="240dp" android:orientation="horizontal">
+
+                <ImageView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:background="@color/ph_beige" android:contentDescription="@null" android:scaleType="centerCrop" android:src="@drawable/ph_scene" android:tag="i:ph_scene" />
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_marginStart="2dp" android:layout_weight="1" android:orientation="vertical">
+
+                    <ImageView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:background="@color/ph_teal" android:contentDescription="@null" android:scaleType="centerCrop" android:src="@drawable/ph_scene" android:tag="i:ph_scene" />
+
+                    <FrameLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_marginTop="2dp" android:layout_weight="1">
+
+                        <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/ph_mauve" android:contentDescription="@null" android:scaleType="centerCrop" android:src="@drawable/ph_scene" android:tag="i:ph_scene" />
+
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:text="+4" android:textColor="@color/white" android:textSize="28sp" android:textStyle="bold" android:tag="t:+4" />
+                    </FrameLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal" android:paddingStart="12dp" android:paddingTop="10dp" android:paddingEnd="12dp" android:paddingBottom="10dp">
+
+                
+                <FrameLayout android:tag="reactionIcons" android:layout_width="56dp" android:layout_height="24dp">
+
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/bg_avatar" android:contentDescription="Like" android:padding="5dp" android:src="@drawable/ic_thumb" app:tint="@color/white" android:tag="i:ic_thumb" />
+
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:layout_marginStart="16dp" android:background="@drawable/bg_avatar" android:backgroundTint="@color/love_red" android:contentDescription="Love" android:padding="5dp" android:src="@drawable/ic_heart" app:tint="@color/white" android:tag="i:ic_heart" />
+
+                    <View android:layout_width="24dp" android:layout_height="24dp" android:layout_marginStart="32dp" android:background="@drawable/bg_avatar" android:backgroundTint="@color/reaction_gold" />
+                </FrameLayout>
+
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="6dp" android:layout_weight="1" android:text="Aisha and 1.2K others" android:textColor="@color/text_gray" android:textSize="14sp" android:tag="t:Aisha and 1.2K others" />
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="86 comments · 12 shares" android:textColor="@color/text_gray" android:textSize="14sp" android:tag="t:86 comments · 12 shares" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginStart="12dp" android:layout_marginEnd="12dp" android:background="@color/stroke_light" />
+
+            
+            <LinearLayout android:layout_width="match_parent" android:layout_height="48dp" android:orientation="horizontal">
+
+                <LinearLayout android:id="@+id/btnLike" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:clickable="true" android:focusable="true" android:gravity="center" android:orientation="horizontal">
+
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:contentDescription="Like" android:src="@drawable/ic_thumb" app:tint="@color/text_gray" android:tag="i:ic_thumb" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:text="Like" android:textColor="@color/text_gray" android:textSize="15sp" android:tag="t:Like" />
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/btnComment" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:clickable="true" android:focusable="true" android:gravity="center" android:orientation="horizontal">
+
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:contentDescription="Comment" android:src="@drawable/ic_comment" app:tint="@color/text_gray" android:tag="i:ic_comment" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:text="Comment" android:textColor="@color/text_gray" android:textSize="15sp" android:tag="t:Comment" />
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/btnShare" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:clickable="true" android:focusable="true" android:gravity="center" android:orientation="horizontal">
+
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:contentDescription="Share" android:src="@drawable/ic_share" app:tint="@color/text_gray" android:tag="i:ic_share" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:text="Share" android:textColor="@color/text_gray" android:textSize="15sp" android:tag="t:Share" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="8dp" android:background="@color/divider_thick" />
+        </LinearLayout>

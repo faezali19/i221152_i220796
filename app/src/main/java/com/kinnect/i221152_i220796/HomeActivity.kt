@@ -1,42 +1,22 @@
 package com.kinnect.i221152_i220796
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import androidx.appcompat.app.AppCompatActivity
-
-/** UI-only screen. Click listeners navigate; no backend or real media operations. */
-class HomeActivity : BaseTabActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
-        setupTabs(0)
-        findViewById<View>(R.id.composerAvatar).setOnClickListener {
-            startActivity(Intent(this, ProfileActivity::class.java))
-        }
-        findViewById<View>(R.id.btnComment).setOnClickListener {
-            startActivity(Intent(this, CommentsActivity::class.java))
-        }
-        findViewById<View>(R.id.btnLike).setOnClickListener {
-            startActivity(Intent(this, ReactionPickerActivity::class.java))
-        }
-        // A long press also opens the reaction design.
-        findViewById<View>(R.id.btnLike).setOnLongClickListener {
-            startActivity(Intent(this, ReactionPickerActivity::class.java))
-            true
-        }
-        findViewById<View>(R.id.composerBox).setOnClickListener {
-            startActivity(Intent(this, CreatePostActivity::class.java))
-        }
-        findViewById<View>(R.id.btnPhotoIcon).setOnClickListener {
-            startActivity(Intent(this, CreatePostActivity::class.java))
-        }
-        findViewById<View>(R.id.storyCreate).setOnClickListener {
-            startActivity(Intent(this, CameraActivity::class.java))
-        }
-        findViewById<View>(R.id.storyOmar).setOnClickListener {
-            startActivity(Intent(this, StoryViewerActivity::class.java))
-        }
-
-    }
+import android.view.*
+import android.widget.*
+import androidx.activity.result.contract.ActivityResultContracts
+class HomeActivity:BaseTabActivity(){private val posts=mutableMapOf<String,List<Record>>();private var sources=setOf<String>();private val permission=registerForActivityResult(ActivityResultContracts.RequestPermission()){}
+ override fun onCreate(b:Bundle?){super.onCreate(b);if(Backend.uid.isEmpty()){go(LoginActivity::class.java);finish();return};setContentView(R.layout.activity_home);setupTabs(0);if(android.os.Build.VERSION.SDK_INT>=33)permission.launch(android.Manifest.permission.POST_NOTIFICATIONS)
+ click(R.id.composerAvatar){profile(Backend.uid)};click(R.id.composerBox){go(CreatePostActivity::class.java)};click(R.id.btnPhotoIcon){go(PhotoPickerActivity::class.java)};click(R.id.storyCreate){go(PhotoPickerActivity::class.java,"purpose" to "story")}
+ watch("users/${Backend.uid}"){u->root.set("JW",initials(u.s("name")));root.set("What's on your mind, Jacob?","What's on your mind, ${u.s("name").substringBefore(' ')}?")}
+ watch("friends/${Backend.uid}"){f->val ids=f.keys+Backend.uid;sources=ids;posts.keys.retainAll(ids);ids.forEach{uid->watch(Backend.db.getReference("posts").orderByChild("ownerId").equalTo(uid),"posts:$uid"){d->posts[uid]=d.rows();show()}};show()}
+ watch("storyFeeds/${Backend.uid}"){d->showStories(d.rows().filter{it.n("expiresAt")>Backend.now}.sortedByDescending{it.n("createdAt")})}
+ }
+ private fun show(){list(R.id.feedList,R.layout.item_post,posts.filterKeys{it in sources}.values.flatten().sortedByDescending{it.n("createdAt")} ){v,p->bindPost(v,p)}}
+ private fun showStories(rows:List<Record>){val create=findViewById<View>(R.id.storyCreate)?:return;val container=create.parent as? ViewGroup?:return;while(container.childCount>1)container.removeViewAt(1);rows.forEach{s->val v=layoutInflater.inflate(R.layout.item_story,container,false);val uid=s.s("ownerId");once("users/$uid"){u->v.all().filterIsInstance<TextView>().forEach{it.text=if(it.text.length<=2)initials(u.s("name"))else u.s("name")}};v.all().filterIsInstance<ImageView>().firstOrNull()?.photo(s.obj("media").s("url"));v.setOnClickListener{go(if(uid==Backend.uid)YourStoryActivity::class.java else StoryViewerActivity::class.java,"storyId" to s.s("id"))};container.addView(v)}}
+}
+fun LiveActivity.bindPost(v:View,p:Record){val id=p.s("id");v.set("Sunset walk with the crew. Worth every grain of sand in my shoes.",p.s("text"));v.set("2h · ","${age(p.n("createdAt"))} · ");once("users/${p.s("ownerId")}"){u->v.set("Lina Marsh is at Clifton Beach",u.s("name"));v.set("LM",initials(u.s("name")))};v.label("Lina Marsh is at Clifton Beach")?.setOnClickListener{profile(p.s("ownerId"))}
+ @Suppress("UNCHECKED_CAST") val images=(p["images"] as? List<Any?>).orEmpty().map{it.record()};val tiles=v.pics("ph_scene");(tiles.firstOrNull()?.parent as? View)?.visibility=if(images.isEmpty())View.GONE else View.VISIBLE
+ tiles.forEachIndexed{i,img->img.visibility=if(i<images.size)View.VISIBLE else View.INVISIBLE;if(i<images.size){img.photo(images[i].s("url"));img.setOnClickListener{go(MediaViewerActivity::class.java,"urls" to images.joinToString("\n"){it.s("url")})}}};v.set("+4",if(images.size>3)"+${images.size-3}" else "");val reactions=p.obj("reactions");v.set("Aisha and 1.2K others","${reactions.size} reactions");v.set("86 comments · 12 shares","${p.obj("comments").size} comments");val icons=v.findViewWithTag<android.widget.FrameLayout>("reactionIcons");icons?.removeAllViews();val emoji=mapOf("like" to "👍","love" to "❤️","haha" to "😆","wow" to "😮","sad" to "😢","angry" to "😡");reactions.values.groupingBy{it.toString()}.eachCount().entries.sortedByDescending{it.value}.take(3).forEachIndexed{i,e->icons?.addView(android.widget.TextView(this).apply{text=emoji[e.key];textSize=15f},android.widget.FrameLayout.LayoutParams(24*resources.displayMetrics.density.toInt(),-1).apply{leftMargin=(i*16*resources.displayMetrics.density).toInt()})};v.label("Aisha and 1.2K others")?.setOnClickListener{go(ReactionPickerActivity::class.java,"postId" to id)};v.set("Like",reactions.s(Backend.uid).replaceFirstChar{it.uppercase()}.ifEmpty{"Like"})
+ v.findViewById<View>(R.id.btnLike)?.apply{setOnClickListener{api("react",mapOf("postId" to id,"reaction" to "like"))};setOnLongClickListener{go(ReactionPickerActivity::class.java,"postId" to id);true}}
+ v.findViewById<View>(R.id.btnComment)?.setOnClickListener{go(CommentsActivity::class.java,"postId" to id)};v.findViewById<View>(R.id.btnShare)?.setOnClickListener{chooseFriend{openChat(it,id)}}
 }
