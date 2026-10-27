@@ -1,23 +1,4 @@
 package com.kinnect.i221152_i220796
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import androidx.appcompat.app.AppCompatActivity
-
-/** UI-only screen. Click listeners navigate; no backend or real media operations. */
-class ReactionPickerActivity : LiveActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_reaction_picker)
-        findViewById<View>(R.id.btnBack).setOnClickListener { finish() }
-        findViewById<View>(R.id.btnCloseReactions).setOnClickListener { finish() }
-        findViewById<View>(R.id.reactionShade).setOnClickListener { finish() }
-        // Choosing an emoji only closes the picker. No reaction is stored.
-        for (id in listOf(R.id.reaction0, R.id.reaction1, R.id.reaction2,
-                R.id.reaction3, R.id.reaction4, R.id.reaction5)) {
-            findViewById<View>(id).setOnClickListener { finish() }
-        }
-
-    }
-}
+class ReactionPickerActivity:LiveActivity(){override fun onCreate(b:Bundle?){super.onCreate(b);setContentView(R.layout.activity_reaction_picker);back();click(R.id.btnCloseReactions){finish()};val id=intent.getStringExtra("postId").orEmpty();val types=listOf("like","love","haha","wow","sad","angry");val ids=listOf(R.id.reaction0,R.id.reaction1,R.id.reaction2,R.id.reaction3,R.id.reaction4,R.id.reaction5);ids.forEachIndexed{i,r->click(r){api("react",mapOf("postId" to id,"reaction" to types[i])){finish()}}};watch("posts/$id"){p->root.set("Lina’s post","Post reactions");root.set("Sunset walk with the crew. Worth every grain of sand in my shoes.",p.s("text"));root.set("2h · 🌐",age(p.n("createdAt")));root.set("👍❤️😮 Aisha and 1.2K others      86 comments","${p.obj("reactions").size} reactions · ${p.obj("comments").size} comments");once("users/${p.s("ownerId")}"){root.set("Lina Marsh is at Clifton Beach",it.s("name"));root.set("LM",initials(it.s("name")))};listOf("Aisha Khan","That sky is unreal.","AK","2h    Like    Reply").forEach{root.set(it,"")}}}}
