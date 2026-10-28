@@ -23,6 +23,10 @@ open class LiveActivity:AppCompatActivity(){
  private val listeners=mutableMapOf<String,Pair<Query,ValueEventListener>>()
  private var incomingDialog:AlertDialog?=null
  private var offered=""
+ private var openingChat = false
+ private var friendPickerOpen = false
+ private var navigating = false
+ override fun onResume() { super.onResume(); navigating = false }
  override fun onCreate(state:Bundle?){super.onCreate(state)}
  override fun onStart(){super.onStart();if(Backend.uid.isNotEmpty()&&this !is VoiceCallActivity)watch("incoming/${Backend.uid}","incoming") { data->
   val c=data.rows().firstOrNull{it.s("status")=="ringing"&&Backend.now-it.n("createdAt")<60000}
@@ -34,7 +38,12 @@ open class LiveActivity:AppCompatActivity(){
  fun once(path:String,done:(Record)->Unit){Backend.db.getReference(path).get().addOnSuccessListener{done(it.value.record())}.addOnFailureListener{toast(it.localizedMessage?:"Read failed")}}
  fun api(action:String,data:Record=emptyMap(),done:(Record)->Unit={})=Backend.api(action,data){r,e->if(!isDestroyed){if(e!=null)toast(e)else done(r?:emptyMap())}}
  fun toast(s:String)=Toast.makeText(this,s,Toast.LENGTH_LONG).show()
- fun go(c:Class<*>,vararg extras:Pair<String,String>){startActivity(Intent(this,c).apply{extras.forEach{putExtra(it.first,it.second)}})}
+ fun go(c:Class<*>,vararg extras:Pair<String,String>){
+  if(navigating || isFinishing || isDestroyed)return
+  navigating=true
+  try { startActivity(Intent(this,c).apply{extras.forEach{putExtra(it.first,it.second)}}) }
+  catch(e:Exception){navigating=false;throw e}
+ }
  fun click(id:Int,done:()->Unit){findViewById<View>(id)?.setOnClickListener{done()}}
  fun tap(text:String,done:()->Unit){root.labels(text).forEach{it.setOnClickListener{done()}}}
  fun text(id:Int)=findViewById<TextView>(id)?.text?.toString()?.trim().orEmpty()
@@ -43,8 +52,54 @@ open class LiveActivity:AppCompatActivity(){
  fun choices(title:String,items:List<String>,done:(Int)->Unit){AlertDialog.Builder(this).setTitle(title).setItems(items.toTypedArray()){_,i->done(i)}.show()}
  fun list(id:Int,layout:Int,rows:List<Record>,columns:Int=1,bind:(View,Record)->Unit){val r=findViewById<RecyclerView>(id)?:return;r.isNestedScrollingEnabled=false;r.layoutManager=if(columns>1)GridLayoutManager(this,columns)else LinearLayoutManager(this);r.adapter=object:RecyclerView.Adapter<RowHolder>(){override fun onCreateViewHolder(p:ViewGroup,t:Int)=RowHolder(layoutInflater.inflate(layout,p,false));override fun getItemCount()=rows.size;override fun onBindViewHolder(h:RowHolder,i:Int)=bind(h.itemView,rows[i])}}
  fun profile(uid:String){go(if(uid==Backend.uid)ProfileActivity::class.java else OtherProfileActivity::class.java,"uid" to uid)}
- fun openChat(other:String,postId:String=""){api("openChat",mapOf("other" to other)){r->if(postId.isEmpty())go(ChatActivity::class.java,"chatId" to r.s("id"),"other" to other)else api("message",mapOf("chatId" to r.s("id"),"postId" to postId)){toast("Post shared")}}}
- fun chooseFriend(done:(String)->Unit){once("friends/${Backend.uid}"){f->once("users"){u->val ids=f.keys.toList();if(ids.isEmpty())toast("Add a friend first")else choices("Choose friend",ids.map{u.obj(it).s("name")}){done(ids[it])}}}}
+ fun openChat(other:String,postId:String="") {
+  if(openingChat || navigating || isFinishing || isDestroyed)return
+  openingChat=true
+  toast(if(postId.isEmpty())"Opening conversation..." else "Sharing post...")
+  Backend.api("openChat",mapOf("other" to other)){result,error->
+   if(!isFinishing && !isDestroyed){
+    if(error!=null){openingChat=false;toast(error)}
+    else {
+     val id=result.orEmpty().s("id")
+     if(id.isEmpty()){openingChat=false;toast("Conversation could not be opened")}
+     else if(postId.isEmpty()){
+      openingChat=false
+      go(ChatActivity::class.java,"chatId" to id,"other" to other)
+     } else {
+      Backend.api("message",mapOf("chatId" to id,"postId" to postId,
+       "requestId" to java.util.UUID.randomUUID().toString())){_,failure->
+       openingChat=false
+       if(!isFinishing && !isDestroyed)toast(failure?:"Post shared")
+      }
+     }
+    }
+   } else openingChat=false
+  }
+ }
+ fun chooseFriend(done:(String)->Unit) {
+  if(friendPickerOpen || isFinishing || isDestroyed)return
+  friendPickerOpen=true
+  Backend.db.getReference("friends/${Backend.uid}").get().addOnCompleteListener{task->
+   if(isFinishing || isDestroyed){friendPickerOpen=false;return@addOnCompleteListener}
+   if(!task.isSuccessful){friendPickerOpen=false;toast(task.exception?.localizedMessage?:"Could not load friends");return@addOnCompleteListener}
+   val ids=task.result.children.mapNotNull{it.key}
+   if(ids.isEmpty()){friendPickerOpen=false;toast("Add a friend first");return@addOnCompleteListener}
+   val names=ids.indices.map{"Loading friend ${it+1}..."}.toMutableList()
+   val adapter=ArrayAdapter(this,android.R.layout.simple_list_item_1,names)
+   val dialog=AlertDialog.Builder(this).setTitle("Choose friend")
+    .setAdapter(adapter){_,i->done(ids[i])}.setNegativeButton("Cancel",null).create()
+   dialog.setOnDismissListener{friendPickerOpen=false}
+   dialog.show()
+   ids.forEachIndexed{i,uid->
+    Backend.db.getReference("users/$uid").get().addOnCompleteListener{profileTask->
+     if(!isDestroyed && dialog.isShowing){
+      names[i]=(if(profileTask.isSuccessful)profileTask.result.value.record().s("name") else "").ifBlank{"Friend ${i+1}"}
+      adapter.notifyDataSetChanged()
+     }
+    }
+   }
+  }
+ }
  fun logout(){val leaving=Backend.uid;com.google.firebase.messaging.FirebaseMessaging.getInstance().token.addOnSuccessListener{t->if(leaving.isNotEmpty())Backend.db.getReference("tokens/$leaving/$t").removeValue()};KinnectApp.offline();Backend.auth.signOut();startActivity(Intent(this,LoginActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK));finish()}
 }
 class RowHolder(v:View):RecyclerView.ViewHolder(v)

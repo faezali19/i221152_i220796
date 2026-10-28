@@ -1,53 +1,7 @@
 package com.kinnect.i221152_i220796
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-
-/** UI-only navigation. Intent extras carry the selected display identity, not account data. */
-class ChatsActivity : LiveActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_chats)
-        findViewById<View>(R.id.btnBack).setOnClickListener { finish() }
-        findViewById<View>(R.id.chatRow1).setOnClickListener {
-            val intent = Intent(this, ChatActivity::class.java)
-            intent.putExtra("person_name", "Aisha Khan")
-            intent.putExtra("person_initials", "AK")
-            startActivity(intent)
-        }
-        findViewById<View>(R.id.chatRow2).setOnClickListener {
-            val intent = Intent(this, ChatActivity::class.java)
-            intent.putExtra("person_name", "Design crew")
-            intent.putExtra("person_initials", "DC")
-            startActivity(intent)
-        }
-        findViewById<View>(R.id.chatRow3).setOnClickListener {
-            val intent = Intent(this, ChatActivity::class.java)
-            intent.putExtra("person_name", "Lina Marsh")
-            intent.putExtra("person_initials", "LM")
-            startActivity(intent)
-        }
-        findViewById<View>(R.id.chatRow4).setOnClickListener {
-            val intent = Intent(this, ChatActivity::class.java)
-            intent.putExtra("person_name", "Omar Farooq")
-            intent.putExtra("person_initials", "OF")
-            startActivity(intent)
-        }
-        findViewById<View>(R.id.chatRow5).setOnClickListener {
-            val intent = Intent(this, ChatActivity::class.java)
-            intent.putExtra("person_name", "Bilal Ahmed")
-            intent.putExtra("person_initials", "BA")
-            startActivity(intent)
-        }
-        findViewById<View>(R.id.chatRow6).setOnClickListener {
-            val intent = Intent(this, ChatActivity::class.java)
-            intent.putExtra("person_name", "Noor Fatima")
-            intent.putExtra("person_initials", "NF")
-            startActivity(intent)
-        }
-
-    }
-}
+class ChatsActivity:LiveActivity(){override fun onCreate(b:Bundle?){super.onCreate(b);setContentView(R.layout.activity_chats);back();listOf("AK","Aisha","OF","Omar","SI","Sara","HA","Hamza").forEach{root.set(it,"")};root.pics("ic_pencil").forEach{it.setOnClickListener{chooseFriend{openChat(it)}}};tap("People"){go(FriendsActivity::class.java)};tap("Stories"){go(HomeActivity::class.java)};tap("Search"){go(SearchActivity::class.java)}
+ watch("userChats/${Backend.uid}"){d->list(R.id.chatsList,R.layout.item_chats,d.rows().sortedByDescending{it.n("updatedAt")}){v,c->val other=c.s("other");once("users/$other"){u->v.set("Aisha Khan",u.s("name"));v.set("AK",initials(u.s("name")))};v.set("Sending the photos tonight · 2m","${c.s("lastMessage")} · ${age(c.n("updatedAt"))}");val unread=c.n("updatedAt")>c.n("lastReadAt")&&c.s("lastSender")!=Backend.uid;v.findViewWithTag<View>("unreadDot")?.visibility=if(unread)View.VISIBLE else View.INVISIBLE;v.all().filterIsInstance<android.widget.TextView>().firstOrNull{it.tag=="t:2"}?.text=if(unread)"●"else "";v.alpha=if(unread)1f else .85f;watch("presence/$other","chatPresence:${c.s("id")}"){s->v.all().filter{it.tag=="onlineDot"}.forEach{it.visibility=if(s.b("online"))View.VISIBLE else View.INVISIBLE}};v.setOnClickListener{go(ChatActivity::class.java,"chatId" to c.s("id"),"other" to other)}}}
+ }}
