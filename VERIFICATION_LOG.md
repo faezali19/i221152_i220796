@@ -17,3 +17,5 @@ Add only checks you actually performed, with date, device/API and results.
 - Stage 7, 2026-10-27 17:06:40Z, Faez Ali: Verified gallery and camera photo previews, text-only and four-image post publishing, newest-first feed, +N image grid, image viewing, and posts persisting after reopening. Confirmed friends can see posts and a non-friend account cannot see them in its feed.
 
 - Stage 8, 2026-10-27 17:16:13Z, Faez Ali: Verified all six reactions, replacing and removing my reaction, and one reaction per user per post. Tested a second friend account reacting independently; removing its reaction preserved the first account's reaction. Simultaneous two-device updates were not tested.
+
+- Stage 9, 2026-10-28 07:38:16Z, Faez Ali: Verified text and image comments, replies, Replying to/Cancel behavior, and comment like/unlike counts. Reopened comments and confirmed saved text, images, replies, and likes persisted. Confirmed comments were visible from the second friend account.

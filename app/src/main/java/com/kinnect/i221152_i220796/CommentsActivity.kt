@@ -1,17 +1,10 @@
 package com.kinnect.i221152_i220796
 
-import android.content.Intent
 import android.os.Bundle
+import android.widget.*
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
-
-/** UI-only screen. Click listeners navigate; no backend or real media operations. */
-class CommentsActivity : LiveActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_comments)
-        findViewById<View>(R.id.btnBack).setOnClickListener { finish() }
-        // Reply text is editable; sending comments is outside this assignment.
-
-    }
-}
+import androidx.activity.result.contract.ActivityResultContracts
+class CommentsActivity:LiveActivity(){private var parent="";private var image:Record?=null;private val pick=registerForActivityResult(ActivityResultContracts.GetContent()){uri->if(uri!=null)Backend.upload(uri,contentResolver.getType(uri)?:"image/jpeg"){m,e->if(e!=null)toast(e)else{image=m;toast("Image attached")}}}
+ override fun onCreate(b:Bundle?){super.onCreate(b);setContentView(R.layout.activity_comments);back();val id=intent.getStringExtra("postId").orEmpty();root.set("Replying to Aisha Khan","");tap("Cancel"){parent="";root.set("Replying to Aisha Khan","")};root.pics("ic_camera").forEach{it.setOnClickListener{pick.launch("image/*")}};root.pics("ic_share").forEach{it.setOnClickListener{api("comment",mapOf("postId" to id,"text" to text(R.id.commentInput),"parentId" to parent,"media" to image)){findViewById<EditText>(R.id.commentInput).setText("");parent="";image=null;root.set("Replying to Aisha Khan","")}}}
+ watch("posts/$id","summary"){root.set("👍❤️😮  1.2K","👍❤️😮  ${it.obj("reactions").size}")};watch("posts/$id/comments"){d->val all=d.rows().sortedBy{it.n("createdAt")};list(R.id.commentsList,R.layout.item_comment,all){v,c->v.set("That sky is unreal. Which part of the beach was this?",(if(c.s("parentId").isNotEmpty())"↳ " else "")+c.s("text"));v.set("2h    Like    Reply","${age(c.n("createdAt"))}    ${c.obj("likes").size} likes    Reply");once("users/${c.s("ownerId")}"){u->v.set("Aisha Khan",u.s("name"));v.set("AK",initials(u.s("name")))};v.label("2h    Like    Reply")?.setOnClickListener{choices("Comment",listOf("Like / unlike","Reply")){choice->if(choice==0)api("likeComment",mapOf("postId" to id,"commentId" to c.s("id")))else{parent=c.s("id");once("users/${c.s("ownerId")}"){root.set("Replying to Aisha Khan","Replying to ${it.s("name")}")}}}};val vg=v.label("That sky is unreal. Which part of the beach was this?")?.parent as? android.view.ViewGroup;vg?.findViewWithTag<View>("commentMedia")?.let{vg.removeView(it)};if(c.obj("image").s("url").isNotEmpty()){val img=ImageView(this).apply{tag="commentMedia";layoutParams=android.view.ViewGroup.LayoutParams(180,180);photo(c.obj("image").s("url"));setOnClickListener{go(MediaViewerActivity::class.java,"urls" to c.obj("image").s("url"))}};vg?.addView(img)}}}
+ }}
