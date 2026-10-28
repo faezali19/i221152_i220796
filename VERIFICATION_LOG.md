@@ -21,3 +21,5 @@ Add only checks you actually performed, with date, device/API and results.
 - Stage 9, 2026-10-28 07:38:16Z, Faez Ali: Verified text and image comments, replies, Replying to/Cancel behavior, and comment like/unlike counts. Reopened comments and confirmed saved text, images, replies, and likes persisted. Confirmed comments were visible from the second friend account.
 
 - Stage 9, 2026-10-28 07:54:39Z, Faez Ali: Verified password show/hide on Login and Create account without changing entered text. Verified single-tap gender selection across labels, radio circles and card padding. Verified birthday boxes/arrows open the picker and retain the selected date. Confirmed terms checkbox toggles and existing-account login still works.
+
+- Stage 10, 2026-10-28 09:20:04Z, Faez Ali: Verified photo/video story previews, captions, publishing, Home story strip and playback. Verified friend access, viewer count/list and reaction indicator. Verified close-friends access and audience exclusions.

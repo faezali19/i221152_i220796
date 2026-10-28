@@ -1,334 +1,57 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/storyEditorRoot"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#111111">
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginTop="6dp"
-        android:background="@drawable/bg_kn_story_clip"
-        android:clipToOutline="true">
-
-        <ImageView
-            android:id="@+id/storyBackdrop"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/kn_story_green"
-            android:scaleType="centerCrop"
-            android:contentDescription="@string/kn_story_fix_024" />
-
-        <ImageView
-            android:id="@+id/storyImagePreview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:visibility="gone"
-            android:contentDescription="Selected story photo" />
-
-        <VideoView
-            android:id="@+id/storyVideoPreview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:orientation="horizontal"
-            android:padding="4dp"
-            android:gravity="center_vertical">
-
-            <FrameLayout
-                android:id="@+id/btnClose"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:contentDescription="@string/kn_story_fix_015"
-                android:clickable="true"
-                android:focusable="true">
-
-                <View
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/bg_kn_story_tool" />
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_kn_story_close"
-                    android:contentDescription="@null" />
+<?xml version='1.0' encoding='utf-8'?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="#111111" android:id="@+id/storyEditorRoot">
+    <FrameLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginStart="6dp" android:layout_marginEnd="6dp" android:layout_marginTop="6dp" android:background="@drawable/bg_kn_story_clip" android:clipToOutline="true">
+        <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/kn_story_green" android:scaleType="centerCrop" android:contentDescription="@string/kn_story_fix_024" android:tag="i:kn_story_green" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="4dp" android:layout_gravity="top" android:gravity="center_vertical">
+            <FrameLayout android:layout_width="48dp" android:layout_height="48dp" android:contentDescription="@string/kn_story_fix_015" android:id="@+id/btnClose" android:clickable="true" android:focusable="true">
+                <View android:layout_width="40dp" android:layout_height="40dp" android:layout_gravity="center" android:background="@drawable/bg_kn_story_tool" />
+                <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_kn_story_close" android:contentDescription="@null" android:layout_gravity="center" android:tag="i:ic_kn_story_close" />
             </FrameLayout>
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" />
-
-            <FrameLayout
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:contentDescription="@string/kn_story_fix_016">
-
-                <View
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/bg_kn_story_tool" />
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_kn_story_tag"
-                    android:contentDescription="@null" />
+            <Space android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" />
+            <FrameLayout android:layout_width="48dp" android:layout_height="48dp" android:contentDescription="@string/kn_story_fix_016">
+                <View android:layout_width="40dp" android:layout_height="40dp" android:layout_gravity="center" android:background="@drawable/bg_kn_story_tool" />
+                <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_kn_story_tag" android:contentDescription="@null" android:layout_gravity="center" android:tag="i:ic_kn_story_tag" />
             </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="48dp"
-                android:layout_height="48dp">
-
-                <View
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/bg_kn_story_tool" />
-
-                <TextView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="@string/kn_story_fix_014"
-                    android:textSize="16sp"
-                    android:textColor="#FFFFFF"
-                    android:fontFamily="sans-serif"
-                    android:includeFontPadding="false"
-                    android:textStyle="bold" />
+            <FrameLayout android:layout_width="48dp" android:layout_height="48dp">
+                <View android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_kn_story_tool" android:layout_gravity="center" />
+                <TextView android:layout_width="40dp" android:layout_height="40dp" android:gravity="center" android:layout_gravity="center" android:text="@string/kn_story_fix_014" android:textSize="16sp" android:textColor="#FFFFFF" android:fontFamily="sans-serif" android:includeFontPadding="false" android:textStyle="bold" android:tag="t:Aa" />
             </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:contentDescription="@string/kn_story_fix_017">
-
-                <View
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/bg_kn_story_tool" />
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_kn_story_smile"
-                    android:contentDescription="@null" />
+            <FrameLayout android:layout_width="48dp" android:layout_height="48dp" android:contentDescription="@string/kn_story_fix_017">
+                <View android:layout_width="40dp" android:layout_height="40dp" android:layout_gravity="center" android:background="@drawable/bg_kn_story_tool" />
+                <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_kn_story_smile" android:contentDescription="@null" android:layout_gravity="center" android:tag="i:ic_kn_story_smile" />
             </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:contentDescription="@string/kn_story_fix_018">
-
-                <View
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/bg_kn_story_tool" />
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_kn_story_music"
-                    android:contentDescription="@null" />
+            <FrameLayout android:layout_width="48dp" android:layout_height="48dp" android:contentDescription="@string/kn_story_fix_018">
+                <View android:layout_width="40dp" android:layout_height="40dp" android:layout_gravity="center" android:background="@drawable/bg_kn_story_tool" />
+                <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_kn_story_music" android:contentDescription="@null" android:layout_gravity="center" android:tag="i:ic_kn_story_music" />
             </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:contentDescription="@string/kn_story_fix_019">
-
-                <View
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/bg_kn_story_tool" />
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_kn_story_sparkle"
-                    android:contentDescription="@null" />
+            <FrameLayout android:layout_width="48dp" android:layout_height="48dp" android:contentDescription="@string/kn_story_fix_019">
+                <View android:layout_width="40dp" android:layout_height="40dp" android:layout_gravity="center" android:background="@drawable/bg_kn_story_tool" />
+                <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_kn_story_sparkle" android:contentDescription="@null" android:layout_gravity="center" android:tag="i:ic_kn_story_sparkle" />
             </FrameLayout>
         </LinearLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/storySampleSticker"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:paddingTop="7dp"
-                android:paddingBottom="7dp"
-                android:background="@drawable/bg_kn_story_sat"
-                android:rotation="4"
-                android:text="@string/kn_story_fix_025"
-                android:textSize="20sp"
-                android:textColor="#FFFFFF"
-                android:fontFamily="sans-serif"
-                android:includeFontPadding="false"
-                android:textStyle="bold"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintVertical_bias="0.62" />
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="12dp" android:paddingEnd="12dp" android:paddingTop="7dp" android:paddingBottom="7dp" android:background="@drawable/bg_kn_story_sat" android:rotation="4" android:text="@string/kn_story_fix_025" android:textSize="20sp" android:textColor="#FFFFFF" android:fontFamily="sans-serif" android:includeFontPadding="false" android:textStyle="bold" app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintVertical_bias="0.62" android:layout_marginStart="24dp" android:tag="t:Saturday plans" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="88dp"
-        android:orientation="horizontal"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:gravity="center_vertical">
-
-        <FrameLayout
-            android:id="@+id/btnShareStory"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:layout_marginEnd="6dp"
-            android:clickable="true"
-            android:focusable="true">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:layout_gravity="center"
-                android:orientation="horizontal"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:gravity="center"
-                android:background="@drawable/bg_kn_story_pill">
-
-                <TextView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:gravity="center"
-                    android:background="@drawable/bg_kn_story_circle"
-                    android:backgroundTint="#0B5F63"
-                    android:text="@string/kn_story_fix_021"
-                    android:textSize="8sp"
-                    android:textColor="#FFFFFF"
-                    android:fontFamily="sans-serif"
-                    android:includeFontPadding="false"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:maxLines="1"
-                    android:text="@string/kn_story_fix_022"
-                    android:textSize="12sp"
-                    android:textColor="#FFFFFF"
-                    android:fontFamily="sans-serif"
-                    android:includeFontPadding="false"
-                    android:textStyle="bold" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="88dp" android:orientation="horizontal" android:paddingStart="10dp" android:paddingEnd="10dp" android:gravity="center_vertical">
+        <FrameLayout android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:layout_marginEnd="6dp" android:id="@+id/btnShareStory" android:clickable="true" android:focusable="true">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="44dp" android:orientation="horizontal" android:paddingStart="10dp" android:paddingEnd="10dp" android:gravity="center" android:background="@drawable/bg_kn_story_pill" android:layout_gravity="center">
+                <TextView android:layout_width="24dp" android:layout_height="24dp" android:gravity="center" android:background="@drawable/bg_kn_story_circle" android:backgroundTint="#0B5F63" android:text="@string/kn_story_fix_021" android:textSize="8sp" android:textColor="#FFFFFF" android:fontFamily="sans-serif" android:includeFontPadding="false" android:textStyle="bold" android:tag="t:JW" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="6dp" android:maxLines="1" android:text="@string/kn_story_fix_022" android:textSize="12sp" android:textColor="#FFFFFF" android:fontFamily="sans-serif" android:includeFontPadding="false" android:textStyle="bold" android:tag="t:Your story" />
             </LinearLayout>
         </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/btnCloseFriends"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:layout_marginEnd="6dp"
-            android:clickable="true"
-            android:focusable="true">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:layout_gravity="center"
-                android:orientation="horizontal"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:gravity="center"
-                android:background="@drawable/bg_kn_story_pill">
-
-                <FrameLayout
-                    android:layout_width="24dp"
-                    android:layout_height="24dp">
-
-                    <View
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/bg_kn_story_circle"
-                        android:backgroundTint="#2FA35B" />
-
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_kn_story_star"
-                        android:contentDescription="@null" />
+        <FrameLayout android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:layout_marginEnd="6dp" android:id="@+id/btnCloseFriends" android:clickable="true" android:focusable="true">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="44dp" android:orientation="horizontal" android:paddingStart="10dp" android:paddingEnd="10dp" android:gravity="center" android:background="@drawable/bg_kn_story_pill" android:layout_gravity="center">
+                <FrameLayout android:layout_width="24dp" android:layout_height="24dp">
+                    <View android:layout_width="24dp" android:layout_height="24dp" android:layout_gravity="center" android:background="@drawable/bg_kn_story_circle" android:backgroundTint="#2FA35B" />
+                    <ImageView android:layout_width="16dp" android:layout_height="16dp" android:src="@drawable/ic_kn_story_star" android:contentDescription="@null" android:layout_gravity="center" android:tag="i:ic_kn_story_star" />
                 </FrameLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:maxLines="1"
-                    android:text="@string/kn_story_fix_023"
-                    android:textSize="12sp"
-                    android:textColor="#FFFFFF"
-                    android:fontFamily="sans-serif"
-                    android:includeFontPadding="false"
-                    android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="6dp" android:maxLines="1" android:text="@string/kn_story_fix_023" android:textSize="12sp" android:textColor="#FFFFFF" android:fontFamily="sans-serif" android:includeFontPadding="false" android:textStyle="bold" android:tag="t:Close friends" />
             </LinearLayout>
         </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/btnShareArrow"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:contentDescription="@string/kn_story_fix_020">
-
-            <View
-                android:layout_width="44dp"
-                android:layout_height="44dp"
-                android:layout_gravity="center"
-                android:background="@drawable/bg_kn_story_circle"
-                android:backgroundTint="#0B5F63" />
-
-            <ImageView
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_kn_story_arrow"
-                android:contentDescription="@null" />
+        <FrameLayout android:layout_width="48dp" android:layout_height="48dp" android:id="@+id/btnShareArrow" android:clickable="true" android:focusable="true" android:contentDescription="@string/kn_story_fix_020">
+            <View android:layout_width="44dp" android:layout_height="44dp" android:layout_gravity="center" android:background="@drawable/bg_kn_story_circle" android:backgroundTint="#0B5F63" />
+            <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_kn_story_arrow" android:contentDescription="@null" android:layout_gravity="center" android:tag="i:ic_kn_story_arrow" />
         </FrameLayout>
     </LinearLayout>
 </LinearLayout>
