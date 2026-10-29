@@ -73,6 +73,13 @@ class ChatActivity : LiveActivity() {
   root.set("Aisha Khan", "Conversation")
   root.set("AK", "")
   root.set("Active now", "")
+  // The small status dot is the sibling of the toolbar avatar.
+  val avatarParent = findViewById<View>(R.id.chatPersonInitials1).parent as? ViewGroup
+  val onlineDot = avatarParent?.let { parent ->
+   (0 until parent.childCount).map { parent.getChildAt(it) }
+    .firstOrNull { it !is TextView }
+  }
+  onlineDot?.visibility = View.INVISIBLE
   root.set("You're friends on Kinnect · Lives in Karachi", "Kinnect conversation")
   root.set("TODAY 4:49 PM", "")
   input = findViewById(R.id.messageInput)
@@ -108,10 +115,14 @@ class ChatActivity : LiveActivity() {
     header.set("AK", initials(user.s("name")))
    }
    watch("presence/$other") {
+    val online = it.b("online")
+    val lastSeen = it.n("lastSeen")
+    onlineDot?.visibility = if (online) View.VISIBLE else View.INVISIBLE
     root.set("Active now", when {
-     it.b("online") -> "Active now"
-     it.n("lastSeen") > 0 -> "Active ${age(it.n("lastSeen"))} ago"
-     else -> "Offline"
+     online -> "Active now"
+     lastSeen <= 0 -> "Offline"
+     Backend.now - lastSeen < 60000 -> "Last seen just now"
+     else -> "Last seen ${age(lastSeen)} ago"
     })
    }
   }

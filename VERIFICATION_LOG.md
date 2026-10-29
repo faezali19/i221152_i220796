@@ -25,3 +25,5 @@ Add only checks you actually performed, with date, device/API and results.
 - Stage 10, 2026-10-28 09:20:04Z, Faez Ali: Verified photo/video story previews, captions, publishing, Home story strip and playback. Verified friend access, viewer count/list and reaction indicator. Verified close-friends access and audience exclusions.
 
 - Stage 11, 2026-10-28 10:35:05Z, Faez Ali: Tested on Infinix Note 11: text, image and shared-post messages appear in chat; shared posts open all four images. Replies and hearts work. Own messages can be edited/deleted within five minutes, with Edited label; options disappear after five minutes. Last-message preview and unread status work. Repeated taps no longer open duplicate chats.
+
+- Stage 12, 2026-10-29 13:41:39Z, Faez Ali: Tested Stage 12 on Infinix and Honor with separate accounts. Background message notification received; tapping it opened the correct chat. Green dot and Active now updated on foreground/background transitions. Logout showed offline status. Firebase presence changed to false approximately 90 seconds after internet disconnection and returned to true after reconnection. Last-seen text displayed correctly.
