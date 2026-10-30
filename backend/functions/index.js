@@ -53,7 +53,25 @@ const handlers={
  async viewStory(u,d){const id=key(d.storyId),s=await get(`storyFeeds/${u}/${id}`);if(!s||s.expiresAt<=Date.now())fail('Story expired');await db.ref(`storyViews/${id}/${u}`).set(Date.now());return {}},
  async storyReaction(u,d){const id=key(d.storyId),s=await get(`storyFeeds/${u}/${id}`);if(!s||s.expiresAt<=Date.now())fail('Story expired');if(!['like','love','haha'].includes(d.reaction))fail('Invalid reaction');await db.ref(`storyReactions/${id}/${u}`).set(d.reaction);return {}},
  async startCall(u,d){const c=await chat(u,d.chatId),id=fresh(),other=Object.keys(c.members).find(x=>x!==u);const call={id,chatId:d.chatId,caller:u,callee:other,video:!!d.video,status:'ringing',createdAt:Date.now()};await db.ref().update({[`calls/${id}`]:call,[`incoming/${other}/${id}`]:call,[`callLogs/${u}/${id}`]:call,[`callLogs/${other}/${id}`]:call,[`callSecrets/${id}`]:{encryptionKey:crypto.randomBytes(32).toString('hex'),salt:crypto.randomBytes(32).toString('base64')}});return {id}},
- async callAction(u,d){const id=key(d.callId),c=await get(`calls/${id}`);if(!c||![c.caller,c.callee].includes(u))fail('Call access denied','permission-denied');let status=d.operation;if(status==='accept'){if(u!==c.callee||c.status!=='ringing'||Date.now()-c.createdAt>60000)fail('Call no longer ringing');status='active'}else if(!['ended','declined'].includes(status))fail('Invalid call action');const value={...c,status,updatedAt:Date.now()};await db.ref().update({[`calls/${id}`]:value,[`incoming/${c.callee}/${id}`]:null,[`callLogs/${c.caller}/${id}`]:value,[`callLogs/${c.callee}/${id}`]:value});return {}},
+ async callAction(u,d){
+  const id=key(d.callId),operation=d.operation;
+  const initial=await get(`calls/${id}`);
+  if(!initial||![initial.caller,initial.callee].includes(u))fail('Call access denied','permission-denied');
+  if(operation==='timeout'){await expireRingingCall(id);return {}}
+  if(!['accept','ended','declined'].includes(operation))fail('Invalid call action');
+  const result=await db.ref(`calls/${id}`).transaction(c=>{
+   // null can be an unpopulated SDK cache; return null to allow a server retry.
+   if(c===null)return null;
+   if(!c||![c.caller,c.callee].includes(u))return;
+   if(['ended','declined','missed'].includes(c.status))return;
+   if(operation==='accept'&&(u!==c.callee||c.status!=='ringing'||Date.now()-c.createdAt>=30000))return;
+   if(operation==='declined'&&(u!==c.callee||c.status!=='ringing'))return;
+   return {...c,status:operation==='accept'?'active':operation,updatedAt:Date.now()};
+  });
+  if(result.committed && result.snapshot.val())await publishCallState(result.snapshot.val());
+  else if(operation==='accept'){await expireRingingCall(id);fail('Call no longer ringing')}
+  return {};
+ },
  async callToken(u,d){const id=key(d.callId),c=await get(`calls/${id}`);if(!c||![c.caller,c.callee].includes(u)||!['ringing','active'].includes(c.status)||Date.now()-c.createdAt>7200000)fail('Call unavailable','permission-denied');if(!appId.value()||!cert.value())fail('Configure Agora credentials with menu 5 before calling');const uid=c.caller===u?1:2;return {...await get(`callSecrets/${id}`),appId:appId.value(),channel:id,uid,token:RtcTokenBuilder.buildTokenWithUid(appId.value(),cert.value(),id,uid,RtcRole.PUBLISHER,3600,3600)}},
  async listing(u,d){const title=str(d.title,120),price=str(d.price,30),image=await media(u,d.media);if(!title||!price||!image||!image.type.startsWith('image/'))fail('Add title, price and image');const id=fresh();await db.ref(`listings/${id}`).set({id,ownerId:u,title,price,image,location:str(d.location,100),category:str(d.category,40)||'Other',createdAt:Date.now()});return {id}}
 };
@@ -61,7 +79,27 @@ async function push(uid,title,body,data){const tokens=Object.keys(await get(`tok
 async function messageCreated(e){const m=e.data.val(),c=await get(`chats/${e.params.cid}`);if(!c)return;for(const uid of Object.keys(c.members)){await db.ref(`userChats/${uid}/${e.params.cid}`).transaction(v=>v?.updatedAt>m.createdAt?v:{...v,other:Object.keys(c.members).find(x=>x!==uid),lastMessage:m.text||(m.image?'Photo':'Shared post'),lastSender:m.ownerId,updatedAt:m.createdAt});if(uid!==m.ownerId)await push(uid,(await user(m.ownerId)).name,m.text||'New media message',{chatId:e.params.cid,other:m.ownerId,messageId:e.params.mid})}}
 async function messageEdited(e){const a=e.data.after.val(),b=e.data.before.val();if(!a||!b||a.text===b.text)return;const c=await get(`chats/${e.params.cid}`);for(const uid of Object.keys(c?.members||{}))await db.ref(`userChats/${uid}/${e.params.cid}`).transaction(v=>v?.updatedAt===a.createdAt?{...v,lastMessage:a.text}:v)}
 async function callCreated(e){const c=e.data.val();await push(c.callee,(await user(c.caller)).name,c.video?'Incoming video call':'Incoming voice call',{callId:c.id})}
-async function expiry(){const stories=(await db.ref('stories').orderByChild('expiresAt').endAt(Date.now()).get()).val()||{},updates={};if(Object.keys(stories).length){const feeds=await get('storyFeeds')||{};for(const id of Object.keys(stories)){updates[`stories/${id}`]=null;updates[`storyViews/${id}`]=null;updates[`storyReactions/${id}`]=null;for(const [uid,feed] of Object.entries(feeds))if(feed[id])updates[`storyFeeds/${uid}/${id}`]=null}}const calls=(await db.ref('calls').orderByChild('status').equalTo('ringing').get()).val()||{};for(const c of Object.values(calls))if(Date.now()-c.createdAt>60000){const v={...c,status:'missed'};updates[`calls/${c.id}`]=v;updates[`incoming/${c.callee}/${c.id}`]=null;updates[`callLogs/${c.caller}/${c.id}`]=v;updates[`callLogs/${c.callee}/${c.id}`]=v}if(Object.keys(updates).length)await db.ref().update(updates);}
+// Call expiry is independent of story cleanup and notification recovery.
+async function publishCallState(c){
+ await db.ref().update({[`incoming/${c.callee}/${c.id}`]:null,
+  [`callLogs/${c.caller}/${c.id}`]:c,[`callLogs/${c.callee}/${c.id}`]:c});
+}
+async function expireRingingCall(id){
+ const result=await db.ref(`calls/${id}`).transaction(c=>{
+  if(c===null)return null;
+  if(!c||c.status!=='ringing'||Date.now()-c.createdAt<30000)return;
+  return {...c,status:'missed',updatedAt:Date.now()};
+ });
+ if(result.committed && result.snapshot.val())await publishCallState(result.snapshot.val());
+}
+async function expireCalls(){
+ const calls=await get('calls')||{};
+ await Promise.all(Object.entries(calls)
+  .filter(([,c])=>c.status==='ringing'&&Date.now()-c.createdAt>=30000)
+  .map(([id])=>expireRingingCall(id)));
+}
+
+async function expiry(){const stories=(await db.ref('stories').orderByChild('expiresAt').endAt(Date.now()).get()).val()||{},updates={};if(Object.keys(stories).length){const feeds=await get('storyFeeds')||{};for(const id of Object.keys(stories)){updates[`stories/${id}`]=null;updates[`storyViews/${id}`]=null;updates[`storyReactions/${id}`]=null;for(const [uid,feed] of Object.entries(feeds))if(feed[id])updates[`storyFeeds/${uid}/${id}`]=null}}if(Object.keys(updates).length)await db.ref().update(updates);await expireCalls();}
 
 // Durable, retryable notification jobs. Database writes precede enqueue; startup
 // recovery scans recent messages/calls, so a stopped server does not lose jobs.
@@ -130,6 +168,14 @@ if(require.main===module){
   app.listen(8080,'127.0.0.1',()=>console.log('Kinnect local backend ready on 127.0.0.1:8080. Keep this window open.'));
   let busy=false;
   async function tick(){if(busy)return;busy=true;try{await expiry();await recoverJobs()}catch(e){console.error('Maintenance:',e.code||e.message)}finally{busy=false}}
+  // A slow notification retry must never block the ringing deadline.
+  let expiringCalls=false;
+  async function callTick(){
+   if(expiringCalls)return;expiringCalls=true;
+   try{await expireCalls()}catch(e){console.error('Call expiry:',e.code||e.message)}
+   finally{expiringCalls=false}
+  }
+  callTick();setInterval(callTick,1000);
   tick();setInterval(tick,60000);
  })().catch(e=>{console.error(e.message);process.exit(1)});
 }
