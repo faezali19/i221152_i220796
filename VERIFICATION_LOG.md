@@ -29,3 +29,5 @@ Add only checks you actually performed, with date, device/API and results.
 - Stage 12, 2026-10-29 13:41:39Z, Faez Ali: Tested Stage 12 on Infinix and Honor with separate accounts. Background message notification received; tapping it opened the correct chat. Green dot and Active now updated on foreground/background transitions. Logout showed offline status. Firebase presence changed to false approximately 90 seconds after internet disconnection and returned to true after reconnection. Last-seen text displayed correctly.
 
 - Stage 13, 2026-10-30 15:07:48Z, Faez Ali: Tested voice and video calls between Infinix and Honor. Answer/decline, two-way audio, remote video, mute, speaker and end-call controls work. Corrected video layout displays properly. Unanswered calls now end after approximately 30 seconds.
+
+- Stage 14, 2026-10-30 15:51:19Z, Faez Ali: Tested chat screenshots on Redmi running Android 15. Taking a screenshot created a system message with the correct profile name on both devices. The background receiver received a notification, and tapping it opened the correct conversation.
