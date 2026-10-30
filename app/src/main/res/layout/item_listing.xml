@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginEnd="6dp" android:orientation="vertical">
+                    <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="170dp" app:cardCornerRadius="12dp" app:cardElevation="0dp">
+                        <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+                            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/ph_green" android:contentDescription="@null" android:scaleType="centerCrop" android:src="@drawable/ph_scene" android:tag="i:ph_scene" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="top|start" android:layout_margin="8dp" android:background="@drawable/bg_tag" android:paddingStart="8dp" android:paddingTop="3dp" android:paddingEnd="8dp" android:paddingBottom="3dp" android:text="JUST LISTED" android:textColor="@color/white" android:textSize="11sp" android:textStyle="bold" android:tag="t:JUST LISTED" />
+                        </FrameLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Rs 45,000" android:textColor="@color/text_dark" android:textSize="17sp" android:textStyle="bold" android:tag="t:Rs 45,000" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Road bike, 21-speed" android:textColor="@color/text_dark" android:textSize="14sp" android:tag="t:Road bike, 21-speed" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Clifton" android:textColor="@color/text_gray" android:textSize="13sp" android:tag="t:Clifton" />
+                </LinearLayout>
+                
+                

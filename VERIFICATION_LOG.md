@@ -31,3 +31,5 @@ Add only checks you actually performed, with date, device/API and results.
 - Stage 13, 2026-10-30 15:07:48Z, Faez Ali: Tested voice and video calls between Infinix and Honor. Answer/decline, two-way audio, remote video, mute, speaker and end-call controls work. Corrected video layout displays properly. Unanswered calls now end after approximately 30 seconds.
 
 - Stage 14, 2026-10-30 15:51:19Z, Faez Ali: Tested chat screenshots on Redmi running Android 15. Taking a screenshot created a system message with the correct profile name on both devices. The background receiver received a notification, and tapping it opened the correct conversation.
+
+- Stage 15, 2026-10-30 18:33:20Z, Faez Ali: Published a marketplace listing with an image, title, price, location and category. Verified it persisted after reopening and category filtering included/excluded it correctly. Switched to the buyer account, opened the seller conversation and sent a message. Confirmed receipt on the seller account.

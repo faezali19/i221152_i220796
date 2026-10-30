@@ -1,12 +1,8 @@
 package com.kinnect.i221152_i220796
 
 import android.os.Bundle
-
-/** Screen 23: Marketplace (PDF page 23). */
-class MarketplaceActivity : BaseTabActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_marketplace)
-        setupTabs(2, "Marketplace")
-    }
+import androidx.activity.result.contract.ActivityResultContracts
+class MarketplaceActivity:BaseTabActivity(){private var title="";private var price="";private var location="";private var category="Other";private var filter="All";private var listings:Record=emptyMap();private val pick=registerForActivityResult(ActivityResultContracts.GetContent()){uri->if(uri!=null)Backend.upload(uri,contentResolver.getType(uri)?:"image/jpeg"){m,e->if(e!=null)toast(e)else api("listing",mapOf("title" to title,"price" to price,"location" to location,"category" to category,"media" to m)){toast("Listing published")}}}
+ override fun onCreate(b:Bundle?){super.onCreate(b);setContentView(R.layout.activity_marketplace);setupTabs(2,"Marketplace");root.set("Karachi · 40 km","All locations");watch("listings"){listings=it;show()};click(R.id.btnSell){ask("Item title"){title=it;ask("Price in rupees"){price=it;ask("Location"){location=it;choices("Category",listOf("Electronics","Vehicles","Home","Other")){i->category=listOf("Electronics","Vehicles","Home","Other")[i];pick.launch("image/*")}}}}};click(R.id.btnCategories){val cats=listOf("All","Electronics","Vehicles","Home","Other");choices("Categories",cats){filter=cats[it];show()}}}
+ private fun show(){list(R.id.listingsList,R.layout.item_listing,listings.rows().filter{filter=="All"||it.s("category")==filter}.sortedByDescending{it.n("createdAt")},2){v,l->v.set("Rs 45,000","Rs ${l.s("price")}");v.set("Road bike, 21-speed",l.s("title"));v.set("Clifton",l.s("location"));v.set("JUST LISTED",age(l.n("createdAt")));v.pics("ph_scene").firstOrNull()?.photo(l.obj("image").s("url"));v.setOnClickListener{if(l.s("ownerId")==Backend.uid)toast("This is your listing")else openChat(l.s("ownerId"))}}}
 }
